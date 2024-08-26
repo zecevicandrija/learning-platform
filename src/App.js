@@ -1,24 +1,33 @@
-import logo from './logo.svg';
+import Pocetna from './komponente/Pocetna';
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import KursLista from './komponente/KursLista';
+import React, { useState } from 'react';
+import DodajKurs from './komponente/DodajKurs';
+import LoginPage from './login/LoginPage';
+import SignUpPage from './login/SignUpPage';
+import DodajKorisnika from './login/DodajKorisnika';
+import { AuthProvider } from './login/auth';
+import Navbar from './Navigacija/Navbar';
+
 import './App.css';
 
-function App() {
+  const App = () => {
+    
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <AuthProvider>
+      <Navbar />
+        <Routes>
+          <Route path="/" element={<Pocetna />} />
+          <Route path="/kursevi" element={<KursLista />} />
+          <Route path="/dodajkurs" element={<DodajKurs />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/Signup" element={<SignUpPage />} />
+          <Route path="/Dodajkorisnika" element={<DodajKorisnika />} />
+        </Routes>
+      </AuthProvider>
+    </Router>
   );
 }
 
