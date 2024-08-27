@@ -5,6 +5,7 @@ const db = require('./db');
 const authRouter = require('./routes/auth');
 const korisniciRouter = require('./routes/korisnici'); 
 const kurseviRouter = require('./routes/kursevi');
+const lekcijeRouter = require('./routes/lekcije');
 
 
 
@@ -27,6 +28,7 @@ db.connect((err) => {
 app.use('/api/auth', authRouter);
 app.use('/api/korisnici', korisniciRouter);
 app.use('/api/kursevi', kurseviRouter);
+app.use('/api/lekcije', lekcijeRouter);
 
 
 // Start server
