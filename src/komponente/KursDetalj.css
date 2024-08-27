@@ -1,0 +1,32 @@
+/* src/KursDetalj.css */
+.kurs-detalj-container {
+    padding: 20px;
+}
+
+.kurs-title {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.kurs-opis {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+.kurs-ratings, .kurs-comments {
+    margin-top: 20px;
+}
+
+.kupi-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1em;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.kupi-button:hover {
+    background-color: #218838;
+}

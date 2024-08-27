@@ -17,6 +17,12 @@ const Navbar = () => {
                     <li className="navbar-item">
                         <Link to="/login" className="navbar-link">Login</Link>
                     </li>
+                    <li className="navbar-item">
+                        <Link to="/lekcije" className="navbar-link">Napravi Lekciju</Link>
+                    </li>
+                    <li className="navbar-item">
+                        <Link to="/dodajkurs" className="navbar-link">Napravi Kurs</Link>
+                    </li>
                 </ul>
             </div>
         </nav>

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import './KursLista.css';
 
 const KursLista = () => {
@@ -37,7 +38,11 @@ const KursLista = () => {
                 <tbody>
                     {kursevi.map(kurs => (
                         <tr key={kurs.id}>
-                            <td>{kurs.naziv}</td>
+                            <td>
+                                <Link to={`/kurs/${kurs.id}`}>
+                                    {kurs.naziv}
+                                </Link>
+                            </td>
                             <td>{kurs.opis}</td>
                             <td>{kurs.instruktor_id}</td>
                             <td>{new Date(kurs.created_at).toLocaleDateString()}</td>

@@ -1,0 +1,46 @@
+/* src/Lekcije.css */
+.lekcije-container {
+    margin-top: 20px;
+}
+
+.lekcije-container ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.lekcije-container li {
+    margin-bottom: 10px;
+}
+
+.add-lekcija-form {
+    margin-top: 20px;
+}
+
+.add-lekcija-form div {
+    margin-bottom: 10px;
+}
+
+.add-lekcija-form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.add-lekcija-form input,
+.add-lekcija-form select,
+.add-lekcija-form textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+}
+
+.add-lekcija-form button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.add-lekcija-form button:hover {
+    background-color: #0056b3;
+}
