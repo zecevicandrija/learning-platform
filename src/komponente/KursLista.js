@@ -24,32 +24,22 @@ const KursLista = () => {
     }, []);
 
     return (
-        <div className="container">
+        <div className="kurs-container">
             <h2 className="title">Lista Kurseva</h2>
-            <table className="table">
-                <thead>
-                    <tr>
-                        <th>Naziv</th>
-                        <th>Opis</th>
-                        <th>Instruktor ID</th>
-                        <th>Datum Kreiranja</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {kursevi.map(kurs => (
-                        <tr key={kurs.id}>
-                            <td>
-                                <Link to={`/kurs/${kurs.id}`}>
-                                    {kurs.naziv}
-                                </Link>
-                            </td>
-                            <td>{kurs.opis}</td>
-                            <td>{kurs.instruktor_id}</td>
-                            <td>{new Date(kurs.created_at).toLocaleDateString()}</td>
-                        </tr>
-                    ))}
-                </tbody>
-            </table>
+            <div className="kurs-lista">
+            {kursevi.map(kurs => (
+    <Link to={`/kurs/${kurs.id}`} className="kurs-card" key={kurs.id}>
+        {kurs.slika && (
+            <img src={kurs.slika} alt={kurs.naziv} className="kurs-slika" />
+        )}
+        <p className="kurs-naziv">{kurs.naziv}</p>
+        <p className="kurs-opis">{kurs.opis}</p>
+        <p className="kurs-instruktor">Instruktor ID: {kurs.instruktor_id}</p>
+        <p className="kurs-datum">Datum Kreiranja: {new Date(kurs.created_at).toLocaleDateString()}</p>
+    </Link>
+))}
+
+            </div>
         </div>
     );
 };

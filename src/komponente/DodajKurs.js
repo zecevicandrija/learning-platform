@@ -4,33 +4,42 @@ const DodajKurs = () => {
     const [naziv, setNaziv] = useState('');
     const [opis, setOpis] = useState('');
     const [instruktorId, setInstruktorId] = useState('');
+    const [slika, setSlika] = useState(null);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
-        const kurs = { naziv, opis, instruktor_id: instruktorId };
-
+    
+        const formData = new FormData();
+        formData.append('naziv', naziv);
+        formData.append('opis', opis);
+        formData.append('instruktor_id', instruktorId);
+        if (slika) {
+            formData.append('slika', slika);
+        }
+    
         try {
             const response = await fetch('http://localhost:5000/api/kursevi', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(kurs),
+                body: formData,
             });
-
+    
             if (response.ok) {
-                console.log('Course added successfully');
-                // Resetuj polja nakon uspešnog dodavanja
+                console.log('Kurs je uspešno dodat');
                 setNaziv('');
                 setOpis('');
                 setInstruktorId('');
+                setSlika(null);
             } else {
-                console.error('Failed to add course');
+                console.error('Greška pri dodavanju kursa');
             }
         } catch (error) {
-            console.error('Error:', error);
+            console.error('Greška:', error);
         }
+    };
+    
+
+    const handleFileChange = (e) => {
+        setSlika(e.target.files[0]);
     };
 
     return (
@@ -59,6 +68,13 @@ const DodajKurs = () => {
                     value={instruktorId}
                     onChange={(e) => setInstruktorId(e.target.value)}
                     required
+                />
+            </div>
+            <div>
+                <label>Izaberi Sliku:</label>
+                <input
+                    type="file"
+                    onChange={handleFileChange}
                 />
             </div>
             <button type="submit">Dodaj Kurs</button>
