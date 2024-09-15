@@ -26,3 +26,7 @@ TECHNOLOGIES:
 - Node
 - Express
 - Fetching data with axios
+
+TO DO:
+- Total hours of lectures for each course
+- Custom tags and categories for courses (development, video-editing, business, design etc...)
