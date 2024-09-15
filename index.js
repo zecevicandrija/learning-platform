@@ -8,6 +8,14 @@ const authRouter = require('./routes/auth');
 const korisniciRouter = require('./routes/korisnici'); 
 const kurseviRouter = require('./routes/kursevi');
 const lekcijeRouter = require('./routes/lekcije');
+const wishlistRouter = require('./routes/wishlist');
+const kupovinaRouter = require('./routes/kupovina');
+const ratingsRouter = require('./routes/ratings');
+const komentariRouter = require('./routes/komentari');
+const kompletirane_lekcijeRouter = require('./routes/kompletirane_lekcije');
+const popustiRouter = require('./routes/popusti');
+const kvizoviRouter = require('./routes/kvizovi');
+const rezultatiKvizaRouter = require('./routes/rezultati_kviza');
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -37,6 +45,15 @@ app.use('/api/auth', authRouter);
 app.use('/api/korisnici', korisniciRouter);
 app.use('/api/kursevi', kurseviRouter);
 app.use('/api/lekcije', lekcijeRouter);
+app.use('/api/wishlist', wishlistRouter);
+app.use('/api/kupovina', kupovinaRouter);
+app.use('/api/ratings', ratingsRouter);
+app.use('/api/komentari', komentariRouter);
+app.use('/api/kompletirane_lekcije', kompletirane_lekcijeRouter);
+app.use('/api/popusti', popustiRouter);
+app.use('/api/kvizovi', kvizoviRouter);
+app.use('/api/rezultati_kviza', rezultatiKvizaRouter);
+
 
 // Start server
 app.listen(port, () => {

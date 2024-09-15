@@ -19,28 +19,31 @@ router.get('/', (req, res) => {
 // Endpoint za dodavanje novog korisnika
 router.post('/', async (req, res) => {
     const { ime, prezime, email, sifra, uloga, adresa, telefon } = req.body;
-    console.log("Received data:", req.body); // Provera da li su sva polja primljena
+    console.log("Primljeni podaci:", req.body); // Ispišite podatke u konzolu
+
     try {
         if (!ime || !prezime || !email || !sifra || !uloga || !telefon || !adresa) {
-            return res.status(400).json({ error: 'Missing required fields' });
+            console.error('Nedostaju obavezna polja'); // Log za grešku
+            return res.status(400).json({ error: 'Nedostaju obavezna polja' });
         }
 
         const hashedPassword = await bcrypt.hash(sifra, 10);
-        console.log('Hashed password:', hashedPassword);
+        console.log('Hashed password:', hashedPassword); // Ispišite hashedPassword
 
         const query = 'INSERT INTO korisnici (ime, prezime, email, sifra, uloga, adresa, telefon) VALUES (?, ?, ?, ?, ?, ?, ?)';
-        db.query(query, [ime, prezime, email, hashedPassword, uloga, telefon, adresa], (err, results) => {
+        db.query(query, [ime, prezime, email, hashedPassword, uloga, adresa, telefon], (err, results) => {
             if (err) {
-                console.error('Database error:', err);
-                return res.status(500).json({ error: 'Database error' });
+                console.error('Greška u bazi podataka:', err); // Log za grešku u bazi
+                return res.status(500).json({ error: 'Greška u bazi podataka' });
             }
-            res.status(201).json({ message: 'User added successfully', userId: results.insertId });
+            res.status(201).json({ message: 'Korisnik uspešno dodat', userId: results.insertId });
         });
     } catch (error) {
-        console.error('Internal server error:', error);
-        res.status(500).json({ error: 'Internal server error' });
+        console.error('Interna greška servera:', error); // Log za internu grešku
+        res.status(500).json({ error: 'Interna greška servera' });
     }
 });
+
 // Endpoint za ažuriranje korisnika
 router.put('/:id', async (req, res) => {
     const userId = req.params.id;
