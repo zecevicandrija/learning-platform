@@ -21,7 +21,6 @@ FEATURES:
 
 TECHNOLOGIES:
 - ReactJS
-- Html
 - Css
 - Mysql
 - Node
