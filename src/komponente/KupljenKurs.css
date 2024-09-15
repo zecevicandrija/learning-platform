@@ -1,0 +1,81 @@
+.kupljeni-kursevi-container {
+  max-width: 100%;
+  margin: 0px auto;
+  padding: 20px;
+}
+
+.kurs-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Add spacing between cards */
+  justify-content: center;
+}
+
+.naslovkupljeni {
+  display: flex;
+  justify-content: center;
+}
+
+.kurs-card {
+  border: 1px solid #ddd;
+  margin: 10px;
+  width: 300px;
+  cursor: pointer;
+
+  background-color: #fff;
+border-radius: 10px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+padding: 10px;
+flex: 1 1 30%; /* Adjust the basis to fit cards nicely */
+box-sizing: border-box; /* Ensure padding and border are included in width calculation */
+max-width: 330px; /* Optional: ensures cards don’t get too small */
+
+overflow: hidden;
+transition: transform 0.2s ease-in-out;
+}
+
+
+.kurs-link {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: black 1px solid;
+  cursor: pointer;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+}
+
+.kurs-link:hover {
+  background-color: transparent;
+  color: #007bff;
+  border: black 1px solid;
+  box-shadow: 0 4px 14px rgba(0, 123, 255, 0.3);
+}
+
+/* Dark Theme Styles */
+.dark-theme .kupljeni-kursevi-container {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+.dark-theme .kurs-card {
+  background-color: #1e1e1e;
+  color: #e0e0e0;
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+}
+
+.dark-theme .kurs-link {
+  background-color: #ffcc00;
+  color: #000;
+  border: 1px solid #ffcc00;
+}
+
+.dark-theme .kurs-link:hover {
+  background-color: transparent;
+  color: #ffcc00;
+  border-color: #ffcc00;
+  box-shadow: 0 4px 14px rgba(255, 204, 0, 0.3);
+}

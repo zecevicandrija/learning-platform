@@ -1,32 +1,245 @@
-/* src/KursDetalj.css */
-.kurs-detalj-container {
+.kurs-detalj-wrapper {
+    display: flex;
+    flex-direction: column;
     padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #f7f7f7;
+}
+
+.kurs-detalj-container {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.left-section {
+    flex: 0 0 45%;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.videocontainer-kurs {
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+}
+
+.videocontainer-kurs video {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.right-section {
+    flex: 1;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .kurs-title {
-    font-size: 2em;
-    margin-bottom: 10px;
-}
-
-.kurs-opis {
-    font-size: 1.2em;
+    font-size: 2.5rem;
+    color: #333;
     margin-bottom: 20px;
 }
 
-.kurs-ratings, .kurs-comments {
+.kurs-opis {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.wishlist-button,
+.purchase-button {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-bottom: 20px;
+    transition: background-color 0.3s;
+}
+
+.wishlist-button.wishlisted {
+    background-color: #ff6b6b;
+}
+
+.wishlist-button:hover,
+.purchase-button:hover {
+    background-color: #0056b3;
+}
+
+.rating-section {
     margin-top: 20px;
 }
 
-.kupi-button {
-    margin-top: 20px;
-    padding: 10px 20px;
-    font-size: 1em;
+.submit-rating-button {
+    margin-top: 10px;
+    padding: 8px 16px;
     background-color: #28a745;
     color: white;
     border: none;
     cursor: pointer;
+    border-radius: 4px;
 }
 
-.kupi-button:hover {
-    background-color: #218838;
+.lekcije-container {
+    margin-top: 30px;
+}
+
+.lekcije-section {
+    margin-bottom: 20px;
+}
+
+.section-title {
+    font-size: 1.5rem;
+    color: #007BFF;
+    margin-bottom: 10px;
+}
+
+.lekcije-lista {
+    list-style: none;
+    padding: 0;
+}
+
+.lekcija-item {
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s;
+}
+
+.lekcija-item:hover {
+    background-color: #e0e0e0;
+}
+
+.lekcija-title {
+    cursor: pointer;
+    font-size: 1.1rem;
+    color: #007BFF;
+}
+
+.komentari-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+.quiz-container {
+    margin-top: 20px;
+}
+
+.quiz-question {
+    margin-bottom: 15px;
+}
+
+.quiz-question p {
+    font-weight: bold;
+}
+
+.quiz-question ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.quiz-question li {
+    margin-bottom: 5px;
+}
+
+
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .kurs-detalj-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .left-section,
+    .right-section {
+        flex: 1;
+    }
+
+    .left-section {
+        order: 2;
+    }
+
+    .right-section {
+        order: 1;
+    }
+
+    .videocontainer-kurs {
+        padding: 10px;
+    }
+
+    .kurs-title {
+        font-size: 2rem;
+    }
+
+    .kurs-opis {
+        font-size: 1rem;
+    }
+
+    .wishlist-button,
+    .purchase-button,
+    .submit-rating-button {
+        font-size: 0.9rem;
+        padding: 8px 16px;
+    }
+
+    .lekcija-item {
+        flex-direction: column;
+    }
+
+    .lekcija-title {
+        font-size: 1rem;
+    }
+
+    .section-title {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .kurs-title {
+        font-size: 1.5rem;
+    }
+
+    .kurs-opis {
+        font-size: 0.9rem;
+    }
+
+    .wishlist-button,
+    .purchase-button,
+    .submit-rating-button {
+        font-size: 0.8rem;
+        padding: 6px 12px;
+    }
+
+    .lekcija-item {
+        padding: 8px 12px;
+    }
+
+    .lekcija-title {
+        font-size: 0.9rem;
+    }
+
+    .section-title {
+        font-size: 1rem;
+    }
+
+    .videocontainer-kurs video {
+        height: 200px;
+    }
 }

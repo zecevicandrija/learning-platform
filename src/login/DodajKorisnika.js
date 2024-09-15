@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
 import { Button, TextField, FormControl, InputLabel, MenuItem, Select } from '@mui/material';
 
 const DodajKorisnika = () => {
@@ -9,18 +8,26 @@ const DodajKorisnika = () => {
     const [email, setEmail] = useState('');
     const [sifra, setSifra] = useState('');
     const [uloga, setUloga] = useState('');
-    const navigate = useNavigate();
+    const [telefon, setTelefon] = useState('');
+    const [adresa, setAdresa] = useState('');
 
     const handleDodajKorisnika = async (e) => {
         e.preventDefault();
         try {
-            const noviKorisnik = { ime, prezime, email, sifra, uloga };
+            const noviKorisnik = { ime, prezime, email, sifra, uloga, telefon, adresa };
             await axios.post('http://localhost:5000/api/korisnici', noviKorisnik);
-            navigate('/korisnici');
+            setIme('');
+            setPrezime('');
+            setEmail('');
+            setSifra('');
+            setUloga('');
+            setTelefon('');
+            setAdresa('');
         } catch (error) {
-            console.error('Error adding user:', error);
+            console.error('Greška pri dodavanju korisnika:', error);
         }
     };
+    
 
     return (
         <div>
@@ -56,6 +63,20 @@ const DodajKorisnika = () => {
                     fullWidth
                     margin="normal"
                 />
+                <TextField
+                    label="Telefon"
+                    value={telefon}
+                    onChange={(e) => setTelefon(e.target.value)}
+                    fullWidth
+                    margin="normal"
+                />
+                <TextField
+                    label="Adresa"
+                    value={adresa}
+                    onChange={(e) => setAdresa(e.target.value)}
+                    fullWidth
+                    margin="normal"
+                />
                 <FormControl fullWidth margin="normal">
                     <InputLabel id="select-uloga-label">Uloga</InputLabel>
                     <Select
@@ -64,10 +85,8 @@ const DodajKorisnika = () => {
                         onChange={(e) => setUloga(e.target.value)}
                     >
                         <MenuItem value="admin">Admin</MenuItem>
-                        <MenuItem value="nabavka">Nabavka</MenuItem>
-                        <MenuItem value="komercijala">Komercijala</MenuItem>
-                        <MenuItem value="radnik">Radnik</MenuItem>
-                        <MenuItem value="finansije">Finansije</MenuItem>
+                        <MenuItem value="instruktor">Instruktor</MenuItem>
+                        <MenuItem value="korisnik">Korisnik</MenuItem>
                     </Select>
                 </FormControl>
                 <Button type="submit" variant="contained" color="primary">Dodaj Korisnika</Button>

@@ -1,46 +1,109 @@
-/* src/Lekcije.css */
+/* Light Theme Styles */
 .lekcije-container {
     margin-top: 20px;
 }
 
-.lekcije-container ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.lekcije-container li {
-    margin-bottom: 10px;
+.lekcije-container h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
 }
 
 .add-lekcija-form {
-    margin-top: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 .add-lekcija-form div {
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
 .add-lekcija-form label {
     display: block;
-    margin-bottom: 5px;
+    margin-bottom: 8px;
+    font-weight: bold;
 }
 
 .add-lekcija-form input,
 .add-lekcija-form select,
 .add-lekcija-form textarea {
     width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.add-lekcija-form textarea {
+    height: 100px;
+    resize: vertical;
 }
 
 .add-lekcija-form button {
     padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    cursor: pointer;
+  background-color: #007bff;
+  color: #fff;
+  border: black 1px solid;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 4px;
+  transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
 }
 
 .add-lekcija-form button:hover {
-    background-color: #0056b3;
+    background-color: transparent;
+    color: #007bff;
+    border: black 1px solid;
+    box-shadow: 0 4px 14px rgba(0, 123, 255, 0.3);
+}
+
+.add-lekcija-form p {
+    color: #007bff;
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* Dark Theme Styles */
+.dark-theme .lekcije-container h3 {
+    color: #e0e0e0;
+}
+
+.dark-theme .add-lekcija-form {
+    background-color: #333;
+    color: #e0e0e0;
+    border: 1px solid #444;
+}
+
+.dark-theme .add-lekcija-form label {
+    color: #e0e0e0;
+}
+
+.dark-theme .add-lekcija-form input,
+.dark-theme .add-lekcija-form select,
+.dark-theme .add-lekcija-form textarea {
+    background-color: #555;
+    color: #e0e0e0;
+    border: 1px solid #666;
+}
+
+.dark-theme .add-lekcija-form button {
+    background-color: #ffcc00;
+    color: #000;
+}
+
+.dark-theme .add-lekcija-form button:hover {
+    background-color: transparent;
+  color: #ffcc00;
+  border-color: #ffcc00;
+  box-shadow: 0 4px 14px rgba(255, 204, 0, 0.3);
+}
+
+.dark-theme .add-lekcija-form p {
+    color: #ffcc00;
 }

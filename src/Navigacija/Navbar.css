@@ -1,7 +1,14 @@
 /* Navigacioni meni */
+body {
+    background-color: white;
+    color: black;
+}
+
 .navbar {
-    background-color: #333;
+    background-color: transparent;
     padding: 10px 20px;
+    border: 1px solid #007bff;
+    position: relative; /* Ensure positioning context for badge */
 }
 
 .navbar-container {
@@ -13,10 +20,17 @@
 }
 
 .navbar-logo {
-    color: #fff;
+    color: black;
     font-size: 24px;
     text-decoration: none;
     font-weight: bold;
+    margin-left: -50%;
+}
+
+.logo {
+    width: 80px;
+    border-radius: 10px;
+    object-fit: cover;
 }
 
 .navbar-menu {
@@ -28,32 +42,130 @@
 
 .navbar-item {
     margin-left: 20px;
+    position: relative; /* Ensure positioning context for badge */
 }
 
 .navbar-link {
-    color: #fff;
+    color: black;
     text-decoration: none;
     font-size: 18px;
     transition: color 0.3s ease;
 }
 
 .navbar-link:hover {
-    color: #f4f4f4;
+    color: #007bff;
 }
 
-/* Responsivnost */
+.navbar-item i {
+    font-size: 24px;
+    position: relative; /* Ensure positioning context for badge */
+}
+
+.navbar-hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+}
+
+.theme-toggle-button {
+    border: none;
+    background-color: transparent;
+    margin-left: -10px;
+}
+
+.theme-toggle-button:hover {
+    color: #007bff;
+}
+
+/* Dark theme styles */
+.dark-theme body {
+    background-color: #121212;
+    color: white;
+}
+
+.dark-theme .navbar {
+    background-color: #333;
+    border-color: #555;
+}
+
+.dark-theme .navbar-link {
+    color: white;
+}
+
+.dark-theme .navbar-link:hover {
+    color: #ffcc00;
+}
+
+.dark-theme .theme-toggle-button {
+    background-color: transparent;
+    color: white;
+}
+
+.dark-theme .theme-toggle-button:hover {
+    color: #e6b800;
+}
+
+.cart-badge {
+    position: absolute;
+    top: -10px; /* Adjust based on the icon size */
+    right: -10px; /* Adjust based on the icon size */
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 12px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1; /* Ensure it appears above other elements */
+}
+
+/* Mobile View Styles */
 @media (max-width: 768px) {
+
     .navbar-container {
+        position: relative;
+    }
+    .navbar-menu {
+        display: none;
         flex-direction: column;
-        align-items: flex-start;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: #fff;
+        width: 100%;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        z-index: 1001;
+        padding: 0;
     }
 
-    .navbar-menu {
-        flex-direction: column;
-        width: 100%;
+    .navbar-menu.active {
+        display: flex;
+        width: 100px;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .navbar-hamburger {
+        display: block;
+        margin-left: 480%;
     }
 
     .navbar-item {
-        margin: 10px 0;
+        margin: 1px 0;
+        text-align: center;
+    }
+
+    .navbar-link {
+        display: block;
+        padding: 10px;
+    }
+
+    .navbar-logo {
+        left: -150px;
+        position: absolute;
     }
 }

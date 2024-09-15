@@ -1,0 +1,191 @@
+/* Instruktor.css */
+.instruktor-container {
+    padding: 20px;
+}
+
+.title {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.kurs-lista {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.kurs-card {
+    border: 1px solid #ddd;
+    margin: 10px;
+    width: 300px;
+    cursor: pointer;
+
+    background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  flex: 1 1 30%; /* Adjust the basis to fit cards nicely */
+  box-sizing: border-box; /* Ensure padding and border are included in width calculation */
+  max-width: 330px; /* Optional: ensures cards don’t get too small */
+
+  overflow: hidden;
+  transition: transform 0.2s ease-in-out;
+    height: 380px;
+}
+
+
+
+.kurs-slika {
+    display: block;
+    width: 100%;
+    height: 180px;
+    border-top-left-radius: 10px; /* Match the border-radius with the card */
+    border-top-right-radius: 10px; /* Match the border-radius with the card */
+    transition: transform 0.3s ease; /* Add a smooth transition for hover effects */
+    object-fit: cover;
+}
+
+.kurs-naziv {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.kurs-opis {
+    margin: 10px 0;
+}
+
+.kurs-datum {
+    color: #888;
+}
+
+
+
+
+
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content,
+.edit-modal-content {
+    background: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    max-width: 80%;
+    max-height: 80vh;
+    overflow-y: auto;
+    position: relative;
+}
+
+.close-modal-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #ff6b6b;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.close-modal-button:hover {
+    background: #ff4c4c;
+}
+
+.lessons-list {
+    margin-top: 20px;
+}
+
+.lesson-card {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.lesson-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.lesson-content {
+    margin: 10px 0;
+    font-size: 14px;
+    color: #333;
+}
+
+.lesson-video {
+    max-width: 20%;
+    height: auto;
+    margin: 10px 0;
+}
+
+.delete-lesson-button,
+.save-edit-button,
+.edit-lesson-button {
+    background: #ff6b6b;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 5px 10px;
+    cursor: pointer;
+
+}
+
+.delete-lesson-button:hover,
+.save-edit-button:hover,
+.edit-lesson-button:hover {
+    background: #ff4c4c;
+}
+
+form label {
+    display: block;
+    margin-top: 10px;
+}
+
+form input,
+form textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+form textarea {
+    height: 100px;
+}
+
+.delete-button2, .view-students-button, .view-lessons-button {
+    background-color: transparent;
+    color: #000;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 26px;
+    transition: 0.3s
+};
+
+.delete-button2:hover {
+    color: rgb(255, 53, 53); 
+}
+
+
+.view-students-button:hover {
+    color: rgb(11, 202, 202);
+}
+
+.view-lessons-button:hover {
+    color: rgb(18, 206, 18);
+}

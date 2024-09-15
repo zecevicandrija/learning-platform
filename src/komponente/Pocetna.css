@@ -1,8 +1,9 @@
+/* Light Theme Styles */
 .pocetna-container {
   color: #333;
-  max-width: 1200px;
+  max-width: 100%;
   margin: 0 auto;
-  padding: 0 20px;
+  
   font-family: "Bai Jamjuree", sans-serif;
 }
 
@@ -59,12 +60,13 @@
 .product-item {
   background-color: #fff;
   padding: 20px;
-  width: 30%;
+  width: 20%;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s;
   border-radius: 8px;
   position: relative;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .product-item img {
@@ -85,4 +87,232 @@
   padding: 20px 0;
   background-color: #f8f9fa;
   margin-top: 40px;
+}
+
+/* Stil za sekciju lista želja */
+.wishlist-section {
+  padding: 40px 20px;
+  background-color: #f4f4f4;
+  border-radius: 8px;
+  margin-bottom: 40px;
+  width: 50%;
+  margin: auto;
+}
+
+.wishlist-title {
+  font-size: 36px;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #333;
+}
+
+.wishlist-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.wishlist-item {
+  background-color: #fff;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: background-color 0.3s, box-shadow 0.3s;
+  font-size: 18px;
+  color: #333;
+  justify-content: space-between;
+}
+
+.wishlist-item:hover {
+  background-color: #e0e0e0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.profil-remove-btn {
+  background-color: transparent;
+  color: #000;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.profil-remove-btn:hover {
+  color: #c82333;
+}
+
+/* Dark Theme Styles */
+
+.dark-theme .profil-remove-btn {
+  background-color: transparent;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.dark-theme .profil-remove-btn:hover {
+  color: #ffcc00;
+}
+
+.dark-theme .pocetna-container {
+  color: #e0e0e0;
+}
+
+.dark-theme .hero-section {
+  background-color: #333;
+}
+
+.dark-theme .hero-section h1 {
+  color: #fff;
+}
+
+.dark-theme .hero-section p {
+  color: #e0e0e0;
+}
+
+.dark-theme .shop-now-btn {
+  background-color: #ffcc00;
+  color: #000;
+}
+
+.dark-theme .shop-now-btn:hover {
+  background-color: transparent;
+  color: #ffcc00;
+  border-color: #ffcc00;
+  box-shadow: 0 4px 14px rgba(255, 204, 0, 0.3);
+}
+
+.dark-theme .featured-products h2 {
+  color: #fff;
+}
+
+.dark-theme .product-item {
+  background-color: #444;
+  color: #fff;
+  box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
+}
+
+.dark-theme .product-item:hover {
+  box-shadow: 0 4px 14px rgba(255, 204, 0, 0.3);
+}
+
+.dark-theme .footer {
+  background-color: #333;
+  color: #e0e0e0;
+}
+
+.dark-theme .wishlist-section {
+  background-color: #2c2c2c;
+}
+
+.dark-theme .wishlist-title {
+  color: #fff;
+}
+
+.dark-theme .wishlist-item {
+  background-color: #444;
+  color: #fff;
+}
+
+.dark-theme .wishlist-item:hover {
+  background-color: #555;
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+}
+
+
+/* Mobile View Styles */
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 50px 10px;
+  }
+
+  .hero-section h1 {
+    font-size: 36px;
+  }
+
+  .hero-section p {
+    font-size: 16px;
+  }
+
+  .shop-now-btn {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+
+  .featured-products {
+    padding: 40px 10px;
+  }
+
+  .featured-products h2 {
+    font-size: 28px;
+  }
+
+  .product-list {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .product-item {
+    width: 80%;
+    margin-bottom: 20px;
+  }
+
+  .wishlist-section {
+    width: 90%;
+    margin: auto;
+  }
+
+  .wishlist-title {
+    font-size: 28px;
+  }
+
+  .wishlist-item {
+    font-size: 16px;
+  }
+
+  .profil-remove-btn {
+    font-size: 18px;
+  }
+}
+
+/* Extra Small Devices (Phones, 480px and up) */
+@media (max-width: 480px) {
+  .hero-section h1 {
+    font-size: 40px;
+  }
+
+  .hero-section p {
+    font-size: 18px;
+  }
+
+  .shop-now-btn {
+    padding: 8px 14px;
+    font-size: 16px;
+  }
+
+  .featured-products h2 {
+    font-size: 24px;
+  }
+
+  .product-item {
+    width: 80%;
+  }
+
+  .wishlist-title {
+    font-size: 24px;
+  }
+
+  .wishlist-item {
+    font-size: 14px;
+  }
+
+  .profil-remove-btn {
+    font-size: 16px;
+  }
 }

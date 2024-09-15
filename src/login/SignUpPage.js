@@ -40,7 +40,7 @@ const SignUpPage = () => {
         prezime,
         email,
         sifra,
-        uloga: showRole ? uloga : "kupac",
+        uloga: showRole ? uloga : "korisnik",
         adresa,
         telefon,
       });
@@ -49,7 +49,7 @@ const SignUpPage = () => {
         prezime,
         email,
         sifra,
-        uloga: showRole ? uloga : "kupac",
+        uloga: showRole ? uloga : "korisnik",
         telefon,
         adresa
       });
@@ -165,7 +165,8 @@ const SignUpPage = () => {
                     Odaberi ulogu
                   </option>
                   <option value="admin">Admin</option>
-                  <option value="kupac">Korisnik</option>
+                  <option value="instruktor">Instruktor</option>
+                  <option value="korisnik">Korisnik</option>
                 </select>
               </div>
             )}

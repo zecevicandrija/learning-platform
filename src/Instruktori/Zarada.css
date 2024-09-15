@@ -1,0 +1,51 @@
+.zarada-container {
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.zarada-container h3, .zarada-container h4 {
+    margin: 10px 0;
+    font-weight: 600;
+    color: #333;
+}
+
+.filter-container,
+.date-filter-container {
+    margin-bottom: 20px;
+}
+
+.filter-select, .date-filter {
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.chart-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.chartklasa {
+    height: 400px;
+    max-width: 100%;
+}
+
+.date-filter-container label {
+    margin-right: 10px;
+}
+
+.date-filter {
+    margin-right: 20px;
+}

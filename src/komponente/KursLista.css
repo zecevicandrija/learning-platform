@@ -1,7 +1,7 @@
 /* KursLista.css */
 
 .kurs-container {
-    max-width: 1200px;
+    max-width: 100%;
     margin: 0 auto;
     padding: 20px;
 }
@@ -21,13 +21,22 @@
 }
 
 .kurs-card {
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
+    border: 1px solid #ddd;
+    margin: 10px;
     width: 300px;
-    transition: transform 0.2s ease-in-out;
-    padding: 10px;
+    cursor: pointer;
+
+    background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  flex: 1 1 30%; /* Adjust the basis to fit cards nicely */
+  box-sizing: border-box; /* Ensure padding and border are included in width calculation */
+  max-width: 330px; /* Optional: ensures cards don’t get too small */
+
+  overflow: hidden;
+  transition: transform 0.2s ease-in-out;
+    height: 380px;
 }
 
 .kurs-card:hover {
@@ -42,6 +51,7 @@
     color: #007BFF;
     margin: 20px 15px 10px;
     text-decoration: none;
+    text-transform: capitalize;
 }
 
 .kurs-naziv:hover {
@@ -66,15 +76,220 @@
 }
 
 .kurs-slika {
-    width: 100%; /* Make the image take up the full width of the card */
-    height: 200px; /* Set a fixed height for the image */
-    object-fit: cover; /* Ensure the image covers the area while maintaining aspect ratio */
+    display: block;
+    width: 100%;
+    height: 180px;
     border-top-left-radius: 10px; /* Match the border-radius with the card */
     border-top-right-radius: 10px; /* Match the border-radius with the card */
     transition: transform 0.3s ease; /* Add a smooth transition for hover effects */
+    object-fit: cover;
 }
+
 
 .kurs-card:hover .kurs-slika {
     transform: scale(1.01); /* Slightly scale up the image on hover */
 }
 
+.search-input {
+    display: block;
+    margin: 0 auto 20px;
+    padding: 10px;
+    font-size: 1.2rem;
+    width: 50%;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.filter-buttons {
+    display: flex;
+    justify-content: center; /* Center the buttons horizontally */
+    gap: 15px; /* Space between buttons */
+    margin-bottom: 30px; /* Space below the buttons */
+}
+
+.filter-buttons button {
+    background-color: #007BFF; /* Primary blue color */
+    color: white; /* Text color */
+    border: none; /* Remove borders */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px 20px; /* Adjust button padding */
+    font-size: 1rem; /* Font size */
+    font-weight: bold; /* Bold text */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transition for background color and scaling */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.filter-buttons button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    transform: translateY(-3px); /* Lift effect on hover */
+}
+
+.filter-buttons button:active {
+    background-color: #00408d; /* Even darker blue when clicked */
+    transform: translateY(0); /* Return to original position when clicked */
+}
+
+.filter-buttons button:focus {
+    outline: none; /* Remove default focus outline */
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.5); /* Add a glow effect on focus */
+}
+
+
+.kurs-rating {
+    display: flex;
+    align-items: center;
+    
+}
+
+.kurs-rating .average-rating {
+    font-size: 16px; /* Adjust as needed for font size */
+    margin-right: 4px; /* Space between the average rating and stars */
+}
+
+.kurs-rating .popularity {
+    margin-left: 4px; /* Space between stars and popularity count */
+    font-size: 16px; /* Adjust as needed for font size */
+}
+
+
+
+/* Dark Theme Styles */
+.dark-theme .kurs-container {
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+}
+
+.dark-theme .title {
+    color: #ffffff;
+}
+
+.dark-theme .kurs-card {
+    background-color: #333;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+    border: 1px solid #ffcc00;
+}
+
+.dark-theme .kurs-card:hover {
+    box-shadow: 0 4px 14px rgba(255, 204, 0, 0.3);
+}
+
+.dark-theme .kurs-naziv {
+    color: #ffcc00;
+}
+
+.dark-theme .kurs-naziv:hover {
+    color: #ffcc00;
+    text-decoration: underline;
+}
+
+.dark-theme .kurs-opis {
+    color: #cccccc;
+}
+
+.dark-theme .kurs-instruktor,
+.dark-theme .kurs-datum {
+    color: #aaaaaa;
+}
+
+.dark-theme .kurs-slika {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.dark-theme .search-input {
+    background-color: #333;
+    color: #e0e0e0;
+    border: 1px solid #555;
+    box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
+}
+
+.dark-theme .filter-buttons button {
+    background-color: #444;
+    color: #fff;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+    border: 1px solid #ffcc00;
+}
+
+.dark-theme .filter-buttons button:hover {
+    background-color: #555;
+}
+
+.dark-theme .filter-buttons button:active {
+    background-color: #666;
+}
+
+.dark-theme .filter-buttons button:focus {
+    box-shadow: 0 0 10px rgba(255, 204, 0, 0.5);
+}
+
+.dark-theme .kurs-rating .average-rating,
+.dark-theme .kurs-rating .popularity {
+    color: #ffcc00;
+}
+
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .search-input {
+        width: 80%;
+    }
+
+    .filter-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .filter-buttons button {
+        width: auto;
+        margin-bottom: 10px;
+    }
+
+    .kurs-lista {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .kurs-card {
+        width: 90%;
+        max-width: none;
+        margin: 10px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .title {
+        font-size: 1.5rem;
+    }
+
+    .search-input {
+        width: 100%;
+        padding: 8px;
+        font-size: 1rem;
+    }
+
+    .kurs-card {
+        width: 100%;
+        height: auto;
+    }
+
+    .kurs-slika {
+        height: 150px;
+    }
+
+    .kurs-naziv {
+        font-size: 1.2rem;
+    }
+
+    .kurs-opis,
+    .kurs-instruktor,
+    .kurs-datum {
+        font-size: 0.9rem;
+    }
+
+    .kurs-rating .average-rating,
+    .kurs-rating .popularity {
+        font-size: 14px;
+    }
+}

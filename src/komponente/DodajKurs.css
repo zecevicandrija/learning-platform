@@ -1,0 +1,97 @@
+/* Light Theme Styles */
+.dodaj-kurs-form {
+  max-width: 600px;
+  margin: 7rem auto;
+  padding: 40px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+}
+
+.form-input,
+.form-textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  color: #333;
+  font-family: "Bai Jamjuree", sans-serif;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.form-file-input {
+  font-size: 16px;
+}
+
+.form-submit-btn {
+  padding: 12px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: 1px solid transparent; /* Ensure border is transparent by default */
+  cursor: pointer;
+  font-size: 18px;
+  border-radius: 4px;
+  transition: background-color 0.3s, box-shadow 0.3s, border 0.3s; /* Add transition for border */
+  box-sizing: border-box; /* Include padding and border in width and height */
+}
+
+.form-submit-btn:hover {
+  background-color: transparent;
+  color: #007bff;
+  border: 1px solid #007bff;
+  box-shadow: 0 4px 14px rgba(0, 123, 255, 0.3);
+}
+
+/* Dark Theme Styles */
+.dark-theme .dodaj-kurs-form {
+  background-color: #333;
+  color: #e0e0e0;
+  border: 1px solid #444;
+}
+
+.dark-theme .form-label {
+  color: #e0e0e0;
+}
+
+.dark-theme .form-input,
+.dark-theme .form-textarea {
+  background-color: #555;
+  color: #e0e0e0;
+  border: 1px solid #666;
+}
+
+.dark-theme .form-submit-btn {
+  background-color: #ffcc00;
+  color: #000;
+}
+
+.dark-theme .form-submit-btn:hover {
+  background-color: transparent;
+  color: #ffcc00;
+  border: 1px solid #ffcc00;
+  box-shadow: 0 4px 14px rgba(255, 204, 0, 0.3);
+}
