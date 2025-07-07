@@ -8,20 +8,14 @@ export const ThemeProvider = ({ children }) => {
     useEffect(() => {
         const savedTheme = localStorage.getItem('darkTheme') === 'true';
         setIsDarkTheme(savedTheme);
-        if (savedTheme) {
-            document.body.classList.add('dark-theme');
-        }
+        document.documentElement.setAttribute('data-theme', savedTheme ? 'dark' : 'light');
     }, []);
 
     const toggleTheme = () => {
         setIsDarkTheme(prevTheme => {
             const newTheme = !prevTheme;
             localStorage.setItem('darkTheme', newTheme);
-            if (newTheme) {
-                document.body.classList.add('dark-theme');
-            } else {
-                document.body.classList.remove('dark-theme');
-            }
+            document.documentElement.setAttribute('data-theme', newTheme ? 'dark' : 'light');
             return newTheme;
         });
     };

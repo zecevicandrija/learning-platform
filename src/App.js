@@ -19,6 +19,8 @@ import Studenti from './Instruktori/Studenti';
 import Korpa from './Kupovina/Korpa';
 import { ThemeProvider } from './komponente/ThemeContext';
 import Kviz from './Instruktori/Kviz';
+import Popust from './Kupovina/Popust';
+
 
 import './App.css';
 
@@ -33,6 +35,7 @@ const App = () => {
           <Route path="/kursevi" element={<KursLista />} />
           <Route path="/dodajkurs"  element={<ProtectedRoute element={<DodajKurs />} allowedRoles={['admin', 'instruktor']} />} />
           <Route path="/login" element={<LoginPage />} />
+          {/*  napravikviz*/}
           <Route path="/signup" element={<SignUpPage />} />
           <Route path="/dodajkorisnika"  element={<ProtectedRoute element={<DodajKorisnika />} allowedRoles={['admin']} />}/>
           <Route path="/kurs/:id" element={<KursDetalj />} />
@@ -43,7 +46,7 @@ const App = () => {
           <Route
             path="/instruktor"
             element={<ProtectedRoute element={<Instruktor />} allowedRoles={['admin', 'instruktor']} />}
-          />
+          /><Route path="/popust" element={<Popust />} />
           <Route path="/korpa" element={<Korpa />} />
           <Route path='/napravikviz' element={<Kviz />} />
           <Route path="/nevazeca" element={<Nepostojeca />} />

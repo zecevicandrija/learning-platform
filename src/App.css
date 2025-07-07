@@ -1,35 +1,77 @@
+:root {
+  --primary-color: #4a6fa5;
+  --secondary-color: #166088;
+  --accent-color: #4fc3f7;
+  --background-color: #f5f7fa;
+  --text-color: #222;
+  --card-bg: #ffffff;
+  --card-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  --button-bg: var(--primary-color);
+  --button-text: #fff;
+  --button-hover: var(--secondary-color);
+}
+
+[data-theme='dark'] {
+  --primary-color: #6a8fc7;
+  --secondary-color: #2c4d6d;
+  --accent-color: #00b4d8;
+  --background-color: #121212;
+  --text-color: #e0e0e0;
+  --card-bg: #1e1e1e;
+  --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  --button-bg: var(--primary-color);
+  --button-text: white;
+  --button-hover: #4a6fa5;
+}
+
+/* Global Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: "Bai Jamjuree", sans-serif;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* App container */
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-body {
-  font-family: "Bai Jamjuree", sans-serif;
-}
-
-.App-header {
-  background-color: #282c34;
   min-height: 100vh;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  padding: 1rem;
+}
+
+/* Header */
+.App-header {
+  min-height: 60vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+/* Logo spin animation */
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+  animation: App-logo-spin infinite 20s linear;
+}
+
+/* Responsive logo animation */
+@media (prefers-reduced-motion: reduce) {
+  .App-logo {
+    animation: none;
+  }
 }
 
 @keyframes App-logo-spin {
@@ -39,4 +81,49 @@ body {
   to {
     transform: rotate(360deg);
   }
+}
+
+/* Link styling */
+.App-link {
+  color: var(--accent-color);
+  text-decoration: none;
+}
+
+.App-link:hover {
+  text-decoration: underline;
+}
+
+/* Buttons (shared style) */
+button {
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin: 0.3rem;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: var(--button-hover);
+}
+
+/* Cards */
+.card {
+  background-color: var(--card-bg);
+  box-shadow: var(--card-shadow);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 1rem auto;
+  max-width: 800px;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+/* Utility */
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

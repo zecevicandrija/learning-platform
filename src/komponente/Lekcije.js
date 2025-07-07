@@ -6,11 +6,18 @@ import './Lekcije.css';
 const Lekcije = () => {
     const [lekcije, setLekcije] = useState([]);
     const [courses, setCourses] = useState([]);
-    const [sections, setSections] = useState([]); // New state for sections
-    const [newLekcija, setNewLekcija] = useState({ course_id: '', title: '', content: '', section: '' });
+    const [sections, setSections] = useState([]);
+    const [newLekcija, setNewLekcija] = useState({
+        course_id: '',
+        title: '',
+        content: '',
+        section: '',
+        assignment: ''
+    });
     const [video, setVideo] = useState(null);
-    const [loading, setLoading] = useState(false); // New state for loading
-    const { user } = useAuth(); // Fetch user from AuthContext
+    const [images, setImages] = useState([]);
+    const [loading, setLoading] = useState(false);
+    const { user } = useAuth();
 
     useEffect(() => {
         const fetchLekcije = async () => {
@@ -23,8 +30,7 @@ const Lekcije = () => {
         };
 
         const fetchCourses = async () => {
-            if (!user || !user.id) return; // Ensure user and user.id are available
-
+            if (!user || !user.id) return;
             try {
                 const response = await axios.get(`http://localhost:5000/api/kursevi/instruktor/${user.id}`);
                 setCourses(response.data);
@@ -42,7 +48,7 @@ const Lekcije = () => {
         setNewLekcija({ ...newLekcija, [name]: value });
 
         if (name === 'course_id') {
-            fetchSections(value); // Fetch sections when a course is selected
+            fetchSections(value);
         }
     };
 
@@ -63,36 +69,56 @@ const Lekcije = () => {
         setVideo(e.target.files[0]);
     };
 
+    const handleImagesChange = (e) => {
+        setImages([...e.target.files]);
+    };
+
     const handleAddLekcija = async (e) => {
         e.preventDefault();
-
-        if (!video) {
-            console.error('Video file is required');
-            return;
-        }
-
-        const formData = new FormData();
-        formData.append('course_id', newLekcija.course_id);
-        formData.append('title', newLekcija.title);
-        formData.append('content', newLekcija.content);
-        formData.append('section', newLekcija.section);
-        formData.append('video', video);
-
         setLoading(true);
 
         try {
+            let contentWithImages = newLekcija.content;
+
+            // Upload slika na Cloudinary
+            if (images.length > 0) {
+                for (const image of images) {
+                    const imageFormData = new FormData();
+                    imageFormData.append('image', image);
+
+                    const res = await axios.post('http://localhost:5000/api/lekcije/upload-image', imageFormData, {
+                        headers: { 'Content-Type': 'multipart/form-data' }
+                    });
+
+                    const imageUrl = res.data.url;
+                    contentWithImages += `\n<img src="${imageUrl}" alt="lekcija" style="max-width:100%;" />\n`;
+                }
+            }
+
+            const formData = new FormData();
+            formData.append('course_id', newLekcija.course_id);
+            formData.append('title', newLekcija.title);
+            formData.append('content', contentWithImages);
+            formData.append('section', newLekcija.section);
+            formData.append('assignment', newLekcija.assignment);
+            if (video) {
+                formData.append('video', video);
+            }
+
             await axios.post('http://localhost:5000/api/lekcije', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
             });
 
-            const response = await axios.get('http://localhost:5000/api/lekcije');
-            setLekcije(response.data);
-            setNewLekcija({ course_id: '', title: '', content: '', section: '' });
+            const lekcijeResponse = await axios.get('http://localhost:5000/api/lekcije');
+            setLekcije(lekcijeResponse.data);
+            setNewLekcija({ course_id: '', title: '', content: '', section: '', assignment: '' });
             setVideo(null);
+            setImages([]);
         } catch (error) {
             console.error('Error adding lesson:', error);
+            alert(`Greška pri dodavanju lekcije: ${error.response?.data?.error || error.message}`);
         } finally {
             setLoading(false);
         }
@@ -100,7 +126,7 @@ const Lekcije = () => {
 
     return (
         <div className="lekcije-container">
-            <h3 className='lekcijenaslov1'>Napravite Lekcije</h3>
+            <h3 className="lekcijenaslov1">Napravite Lekciju</h3>
 
             <form onSubmit={handleAddLekcija} className="add-lekcija-form">
                 <div>
@@ -120,6 +146,7 @@ const Lekcije = () => {
                         ))}
                     </select>
                 </div>
+
                 <div>
                     <label htmlFor="title">Naslov lekcije:</label>
                     <input
@@ -131,16 +158,20 @@ const Lekcije = () => {
                         required
                     />
                 </div>
+
                 <div>
-                    <label htmlFor="content">Sadržaj lekcije:</label>
+                    <label htmlFor="content">Sadržaj lekcije (tekst + slike):</label>
                     <textarea
                         id="content"
                         name="content"
                         value={newLekcija.content}
                         onChange={handleInputChange}
+                        placeholder="Možete uneti HTML (npr. <img src='URL' />)"
+                        rows={6}
                         required
                     />
                 </div>
+
                 <div>
                     <label htmlFor="section">Sekcija:</label>
                     <select
@@ -160,20 +191,44 @@ const Lekcije = () => {
                         type="text"
                         placeholder="Nova sekcija"
                         value={newLekcija.section}
-                        onChange={handleSectionInput} // Posebna funkcija za unos nove sekcije
+                        onChange={handleSectionInput}
                     />
                 </div>
+
                 <div>
-                    <label htmlFor="video">Izaberite Video:</label>
+                    <label htmlFor="video">Izaberite Video (opciono):</label>
                     <input
                         type="file"
                         id="video"
                         name="video"
                         accept="video/*"
                         onChange={handleVideoChange}
-                        required
                     />
                 </div>
+
+                <div>
+                    <label htmlFor="images">Dodaj slike (opciono):</label>
+                    <input
+                        type="file"
+                        id="images"
+                        name="images"
+                        accept="image/*"
+                        multiple
+                        onChange={handleImagesChange}
+                    />
+                </div>
+
+                <div>
+                    <label htmlFor="assignment">Zadatak (opciono):</label>
+                    <textarea
+                        id="assignment"
+                        name="assignment"
+                        value={newLekcija.assignment}
+                        onChange={handleInputChange}
+                        placeholder="Unesite zadatak za lekciju"
+                    />
+                </div>
+
                 <button type="submit" disabled={loading}>Dodaj Lekciju</button>
                 {loading && <p>Dodavanje lekcije... Molimo sačekajte.</p>}
             </form>

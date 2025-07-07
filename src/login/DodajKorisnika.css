@@ -1,0 +1,101 @@
+/* DodajKorisnika.css */
+
+.dodaj-korisnika-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: var(--card-bg);
+  border-radius: 10px;
+  box-shadow: var(--card-shadow);
+  color: var(--text-color);
+}
+
+.dodaj-korisnika-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: var(--primary-color);
+}
+
+.dodaj-korisnika-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Override Material-UI styles to match your theme */
+.dodaj-korisnika-form .MuiTextField-root,
+.dodaj-korisnika-form .MuiFormControl-root {
+  background-color: var(--card-bg);
+}
+
+.dodaj-korisnika-form .MuiInputLabel-root {
+  color: var(--text-color);
+}
+
+.dodaj-korisnika-form .MuiInputLabel-root.Mui-focused {
+  color: var(--accent-color);
+}
+
+.dodaj-korisnika-form .MuiOutlinedInput-root {
+  color: var(--text-color);
+}
+
+.dodaj-korisnika-form .MuiOutlinedInput-notchedOutline {
+  border-color: #ddd;
+}
+
+.dodaj-korisnika-form .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
+  border-color: var(--accent-color);
+}
+
+.dodaj-korisnika-form .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 2px rgba(79, 195, 247, 0.2);
+}
+
+.dodaj-korisnika-form .MuiSelect-select {
+  background-color: var(--card-bg);
+}
+
+.dodaj-korisnika-form .MuiButton-contained {
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  padding: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+}
+
+.dodaj-korisnika-form .MuiButton-contained:hover {
+  background-color: var(--button-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .dodaj-korisnika-container {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+  
+  .dodaj-korisnika-title {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .dodaj-korisnika-container {
+    padding: 1rem;
+  }
+  
+  .dodaj-korisnika-title {
+    font-size: 1.3rem;
+  }
+  
+  .dodaj-korisnika-form {
+    gap: 1rem;
+  }
+}

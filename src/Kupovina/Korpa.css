@@ -1,162 +1,198 @@
+/* Korpa.css */
 .korpa-container {
-    margin: 2rem;
-    padding: 1.5rem;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .korpa-item {
-    display: flex;
-    align-items: center;
-    margin-bottom: 1.5rem;
-  }
-  
-  .korpa-course-image {
-    width: 150px;
-    height: auto;
-    margin-right: 1rem;
-    border-radius: 8px;
-  }
-  
-  .korpa-course-info h3 {
-    margin: 0 0 0.5rem 0;
-  }
-  
-  .korpa-discount {
-    margin-top: 1rem;
-  }
-  
-  .korpa-discount-input {
-    padding: 0.5rem;
-    width: 100%;
-    max-width: 200px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  .korpa-purchase-button {
-    display: block;
-    margin-top: 1.5rem;
-    padding: 0.75rem 1.5rem;
-    background-color: #4caf50;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .korpa-purchase-button:hover {
-    background-color: #45a049;
-  }
-  .korpa-remove-button {
-    background-color: #f44336;
-    color: white;
-    border: none;
-    padding: 8px 16px;
-    cursor: pointer;
-    border-radius: 4px;
-    margin-top: 10px;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: auto;
+  color: var(--text-color);
+  background-color: var(--background-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
 
-  }
-  
-  .korpa-remove-button:hover {
-    background-color: #d32f2f;
-  }
-  .korpa-wishlist-button,
-.wishlist-add-to-cart-button {
-  background-color: #007bff;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  margin: 5px;
-  cursor: pointer;
+h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
 }
-.wishlist-remove-button {
-  background-color: #f44336;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  margin: 5px;
-  cursor: pointer;
+
+.cart-items {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
-.wishlist-remove-button:hover {
-  background-color: #d32f2f;
+
+.korpa-item {
+  display: flex;
+  gap: 1.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1rem;
+  background: var(--card-background);
+}
+
+.korpa-course-image {
+  width: 150px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.korpa-course-info {
+  flex: 1;
+}
+
+.korpa-course-info h3 {
+  margin: 0.5rem 0;
+}
+
+.kurs-instruktor-korpa,
+.korpa-course-info p {
+  margin: 0.2rem 0;
+}
+
+.korpa-wishlist-button,
+.korpa-remove-button {
+  margin-right: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  background-color: var(--accent-color);
+  color: white;
+  transition: 0.3s ease;
+}
+
+.korpa-remove-button {
+  background-color: crimson;
 }
 
 .korpa-wishlist-button:hover,
-.wishlist-add-to-cart-button:hover {
-  background-color: #0056b3;
+.korpa-remove-button:hover {
+  opacity: 0.85;
+}
+
+.cart-summary {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background-color: var(--card-background);
+}
+
+.discount-section input {
+  padding: 0.5rem;
+  width: 60%;
+  margin-right: 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+}
+
+.discount-section button {
+  padding: 0.5rem 1rem;
+  background-color: var(--accent-color);
+  border: none;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.discount-applied {
+  color: green;
+  margin-top: 0.5rem;
+}
+
+.total-section {
+  margin-top: 1rem;
+}
+
+.korpa-purchase-button {
+  margin-top: 1rem;
+  padding: 0.75rem 2rem;
+  background-color: green;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.korpa-purchase-button:hover {
+  opacity: 0.9;
 }
 
 .recently-added-wishlist {
-  margin-top: 20px;
+  margin-top: 3rem;
 }
 
 .wishlist-item {
   display: flex;
-  align-items: center;
-  margin-bottom: 10px;
+  gap: 1rem;
+  border: 1px solid var(--border-color);
+  padding: 1rem;
+  border-radius: 8px;
+  background-color: var(--card-background);
+  margin-bottom: 1rem;
 }
 
 .wishlist-course-image {
-  width: 100px;
-  height: 75px;
+  width: 120px;
+  height: 80px;
   object-fit: cover;
-  margin-right: 10px;
+  border-radius: 6px;
 }
 
-.wishlist-course-info {
-  flex: 1;
+.wishlist-buttons button {
+  margin-right: 0.5rem;
+  padding: 0.4rem 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  background-color: var(--accent-color);
+  color: white;
+  transition: 0.3s ease;
 }
 
-
-/* modal */
+.wishlist-remove-button {
+  background-color: crimson;
+}
 
 .remove-modal {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
   display: flex;
-  justify-content: center;
   align-items: center;
-  z-index: 1000;
+  justify-content: center;
+  z-index: 999;
 }
 
 .remove-modal-content {
-  background: #fff;
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  padding: 2rem;
+  border-radius: 8px;
   text-align: center;
+  max-width: 400px;
+  color: black;
+}
+
+.modal-buttons button {
+  margin: 0 1rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  background-color: var(--accent-color);
+  color: white;
 }
 
 .remove-modal-confirm-button {
-  background-color: #e74c3c;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-right: 10px;
+  background-color: crimson;
 }
 
-.remove-modal-cancel-button {
-  background-color: #3498db;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.remove-modal-confirm-button:hover {
-  background-color: #c0392b;
-}
-
-.remove-modal-cancel-button:hover {
-  background-color: #2980b9;
+.empty-cart-message {
+  text-align: center;
+  color: gray;
+  margin-top: 2rem;
 }

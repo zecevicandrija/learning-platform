@@ -1,142 +1,137 @@
+/* MojProfil.css */
 .profil-container {
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 20px;
-    background: rgba(255, 255, 255, 0.8);
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .profil-header,
-  .profil-wishlist-header {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  .profil-form .profil-form-group {
-    margin-bottom: 15px;
-  }
-  
-  .profil-form .profil-form-group label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 5px;
-  }
-  
-  .profil-form .profil-form-group input {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-  }
-  
-  .profil-submit-btn {
-    width: 100%;
-    padding: 10px;
-    border: none;
-    background-color: #007bff;
-    color: #fff;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-bottom: 20px;
-  }
-  
-  .profil-submit-btn:hover {
-    background-color: #0056b3;
-  }
-  
-  .profil-wishlist {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .profil-wishlist-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
-    cursor: pointer;
-  }
-  
-  .profil-wishlist-item:hover {
-    background-color: #f8f9fa;
-  }
-  
-  .profil-remove-btn {
-    background-color: transparent;
-    color: #000;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 20px;
-  }
-  
-  .profil-remove-btn:hover {
-    color: #c82333;
-  }
-  
-  .profil-logout-btn {
-    display: block;
-    width: 20%;
-    padding: 10px;
-    border: none;
-    background-color: #dc3545;
-    color: #fff;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 20px;
-  }
-  
-  .profil-logout-btn:hover {
-    background-color: #c82333;
-  }
-  
-  .modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .modal-content {
-    background: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    text-align: center;
-    width: 300px;
-  }
-  
-  .modal-confirm-btn,
-  .modal-cancel-btn {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin: 5px;
-  }
-  
-  .modal-confirm-btn {
-    background-color: #007bff;
-    color: #fff;
-  }
-  
-  .modal-confirm-btn:hover {
-    background-color: #0056b3;
-  }
-  
-  .modal-cancel-btn {
-    background-color: #dc3545;
-    color: #fff;
-  }
-  
-  .modal-cancel-btn:hover {
-    background-color: #c82333;
-  }
-  
+  max-width: 700px;
+  margin: auto;
+  padding: 2rem;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  border-radius: 8px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.profil-header,
+.profil-wishlist-header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.profil-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.profil-form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.profil-form-group label {
+  margin-bottom: 0.3rem;
+}
+
+.profil-form-group input {
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: 1px solid var(--border-color);
+  background-color: var(--input-background);
+  color: var(--text-color);
+}
+
+.profil-submit-btn {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  background-color: var(--accent-color);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.profil-submit-btn:hover {
+  opacity: 0.9;
+}
+
+.profil-wishlist {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 1.5rem;
+}
+
+.profil-wishlist-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem;
+  background-color: var(--card-background);
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.profil-wishlist-item:hover {
+  background-color: var(--hover-background);
+}
+
+.profil-remove-btn {
+  background: transparent;
+  border: none;
+  color: crimson;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.profil-logout-btn {
+  margin-top: 2rem;
+  padding: 0.75rem 1.5rem;
+  background-color: crimson;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: var(--card-background);
+  padding: 2rem;
+  border-radius: 8px;
+  text-align: center;
+  color: var(--text-color);
+}
+
+.modal-confirm-btn,
+.modal-cancel-btn {
+  margin: 0 0.5rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: white;
+}
+
+.modal-confirm-btn {
+  background-color: crimson;
+}
+
+.modal-cancel-btn {
+  background-color: var(--accent-color);
+}

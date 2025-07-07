@@ -1,100 +1,135 @@
-/* General Container */
+/* Kviz.css */
+
 .kviz-container {
-    max-width: 600px;
-    margin: 0 auto;
-    background-color: #f9f9f9;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: var(--card-bg);
+  border-radius: 10px;
+  box-shadow: var(--card-shadow);
+  color: var(--text-color);
 }
 
-/* Title */
 .kviz-naslov {
-    font-size: 24px;
-    color: #333;
-    margin-bottom: 20px;
-    text-align: center;
-    font-weight: bold;
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: var(--primary-color);
 }
 
-/* Form */
 .kviz-form {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
-/* Input Group */
 .kviz-input-group {
-    margin-bottom: 20px;
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
-/* Labels */
 .kviz-label {
-    margin-bottom: 5px;
-    font-weight: 500;
-    color: #555;
+  font-weight: 600;
+  color: var(--text-color);
 }
 
-/* Inputs */
 .kviz-input {
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ddd;
-    font-size: 16px;
-    outline: none;
-    transition: border-color 0.3s ease;
+  padding: 0.8rem 1rem;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  background-color: var(--card-bg);
+  color: var(--text-color);
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .kviz-input:focus {
-    border-color: #007bff;
+  outline: none;
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 2px rgba(79, 195, 247, 0.2);
 }
 
-/* Add Answer Button */
-.kviz-add-button {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 10px;
-    margin-top: 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 14px;
-    transition: background-color 0.3s ease;
+.kviz-add-button,
+.kviz-submit-button {
+  padding: 0.8rem 1.5rem;
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  border: none;
+  border-radius: 5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 0.5rem;
+  align-self: flex-start;
 }
 
-.kviz-add-button:hover {
-    background-color: #0056b3;
+.kviz-add-button:hover,
+.kviz-submit-button:hover {
+  background-color: var(--button-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Answer List */
 .kviz-answer-list {
-    list-style-type: none;
-    padding-left: 0;
-    margin-top: 10px;
+  list-style: none;
+  padding: 0;
+  margin-top: 0.5rem;
 }
 
 .kviz-answer {
-    background-color: #f1f1f1;
-    padding: 10px;
-    margin-bottom: 5px;
-    border-radius: 5px;
-    color: #333;
+  padding: 0.5rem;
+  background-color: var(--wishlist-item-bg);
+  margin-bottom: 0.3rem;
+  border-radius: 3px;
 }
 
-/* Submit Button */
-.kviz-submit-button {
-    background-color: #28a745;
-    color: #fff;
-    border: none;
-    padding: 12px;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+/* Questions list styling */
+.kviz-container > div > h3 {
+  color: var(--primary-color);
+  margin-top: 2rem;
 }
 
-.kviz-submit-button:hover {
-    background-color: #218838;
+.kviz-container > div > ul {
+  list-style: none;
+  padding: 0;
+}
+
+.kviz-container > div > ul > li {
+  background-color: var(--wishlist-item-bg);
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 5px;
+}
+
+.kviz-container > div > ul > li > p {
+  margin: 0.5rem 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .kviz-container {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+  
+  .kviz-naslov {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .kviz-container {
+    padding: 1rem;
+  }
+  
+  .kviz-naslov {
+    font-size: 1.3rem;
+  }
+  
+  .kviz-input,
+  .kviz-add-button,
+  .kviz-submit-button {
+    padding: 0.7rem;
+  }
 }

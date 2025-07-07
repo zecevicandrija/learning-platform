@@ -1,0 +1,165 @@
+/* Auth.css - Unified styles for authentication pages */
+
+/* Theme variables override for MDB components */
+:root {
+    --mdb-primary: var(--primary-color) !important;
+    --mdb-secondary: var(--secondary-color) !important;
+    --mdb-body-bg: var(--background-color) !important;
+    --mdb-body-color: var(--text-color) !important;
+    --mdb-card-bg: var(--card-bg) !important;
+}
+
+/* Base container */
+.auth-page-container {
+    background-color: var(--background-color);
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-left: 20%;
+}
+
+/* Background image */
+.auth-hero-image {
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 300px;
+    position: relative;
+}
+
+/* Card styling */
+.auth-card {
+    margin-top: -100px;
+    background: hsla(0, 0%, 100%, 0.8) !important;
+    backdrop-filter: blur(30px);
+    border-radius: 10px !important;
+    box-shadow: var(--card-shadow) !important;
+    border: none !important;
+}
+
+.auth-card-body {
+    padding: 3rem !important;
+}
+
+.auth-title {
+    color: var(--primary-color) !important;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+/* Form elements */
+.auth-form-input {
+    background-color: var(--card-bg) !important;
+    color: var(--text-color) !important;
+    border: 1px solid #ddd !important;
+    padding: 0.8rem 1rem !important;
+}
+
+.auth-form-input:focus {
+    box-shadow: 0 0 0 2px rgba(79, 195, 247, 0.2) !important;
+    border-color: var(--accent-color) !important;
+}
+
+.auth-form-label {
+    color: var(--text-color) !important;
+    font-weight: 500;
+}
+
+/* Buttons */
+.auth-btn {
+    background-color: var(--button-bg) !important;
+    color: var(--button-text) !important;
+    transition: all 0.3s ease !important;
+    border: none !important;
+    padding: 0.8rem !important;
+    font-weight: 600 !important;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.auth-btn:hover {
+    background-color: var(--button-hover) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Modal styling */
+.auth-modal .modal-content {
+    background-color: var(--card-bg) !important;
+    color: var(--text-color) !important;
+    border: none !important;
+    box-shadow: var(--card-shadow) !important;
+    border-radius: 10px !important;
+}
+
+.auth-modal .modal-header {
+    border-bottom: 1px solid var(--wishlist-item-bg) !important;
+    padding: 1.5rem !important;
+}
+
+.auth-modal .modal-body {
+    padding: 1.5rem !important;
+}
+
+.auth-modal .modal-footer {
+    border-top: 1px solid var(--wishlist-item-bg) !important;
+    padding: 1rem 1.5rem !important;
+}
+
+/* Role selector */
+.auth-role-select {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border-radius: 5px;
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    border: 1px solid #ddd;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+.auth-role-select:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 2px rgba(79, 195, 247, 0.2);
+    outline: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .auth-card {
+        margin: -100px 1rem 2rem 1rem !important;
+        padding: 2rem !important;
+    }
+
+    .auth-card-body {
+        padding: 1.5rem !important;
+    }
+
+    .auth-title {
+        font-size: 1.8rem !important;
+    }
+
+    .auth-hero-image {
+        height: 250px;
+    }
+}
+
+@media (max-width: 480px) {
+    .auth-hero-image {
+        height: 200px;
+    }
+
+    .auth-card {
+        margin-top: -80px !important;
+        padding: 1.5rem !important;
+    }
+
+    .auth-title {
+        font-size: 1.5rem !important;
+        margin-bottom: 1.5rem !important;
+    }
+
+    .auth-form-input {
+        padding: 0.7rem 0.9rem !important;
+    }
+}

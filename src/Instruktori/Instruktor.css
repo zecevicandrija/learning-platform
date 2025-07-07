@@ -1,191 +1,218 @@
-/* Instruktor.css */
+:root {
+  --primary-color: #4a6fa5;
+  --secondary-color: #166088;
+  --accent-color: #4fc3f7;
+  --background-color: #f5f7fa;
+  --text-color: #333;
+  --card-bg: #ffffff;
+  --card-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  --button-bg: var(--primary-color);
+  --button-text: white;
+  --button-hover: var(--secondary-color);
+}
+
+[data-theme="dark"] {
+  --primary-color: #6a8fc7;
+  --secondary-color: #2c4d6d;
+  --accent-color: #00b4d8;
+  --background-color: #121212;
+  --text-color: #e0e0e0;
+  --card-bg: #1e1e1e;
+  --card-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  --button-bg: var(--primary-color);
+  --button-text: white;
+  --button-hover: #4a6fa5;
+}
+
 .instruktor-container {
-    padding: 20px;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  min-height: 100vh;
+  padding: 2rem;
+  transition: background-color 0.3s, color 0.3s;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .title {
-    font-size: 24px;
-    margin-bottom: 20px;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: var(--primary-color);
+  text-align: center;
 }
 
 .kurs-lista {
-    display: flex;
-    flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
 }
 
 .kurs-card {
-    border: 1px solid #ddd;
-    margin: 10px;
-    width: 300px;
-    cursor: pointer;
-
-    background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 10px;
-  flex: 1 1 30%; /* Adjust the basis to fit cards nicely */
-  box-sizing: border-box; /* Ensure padding and border are included in width calculation */
-  max-width: 330px; /* Optional: ensures cards don’t get too small */
-
-  overflow: hidden;
-  transition: transform 0.2s ease-in-out;
-    height: 380px;
+  background-color: var(--card-bg);
+  box-shadow: var(--card-shadow);
+  padding: 1rem;
+  border-radius: 12px;
+  position: relative;
+  transition: transform 0.2s;
 }
 
-
+.kurs-card:hover {
+  transform: translateY(-4px);
+}
 
 .kurs-slika {
-    display: block;
-    width: 100%;
-    height: 180px;
-    border-top-left-radius: 10px; /* Match the border-radius with the card */
-    border-top-right-radius: 10px; /* Match the border-radius with the card */
-    transition: transform 0.3s ease; /* Add a smooth transition for hover effects */
-    object-fit: cover;
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 0.5rem;
 }
 
 .kurs-naziv {
-    font-size: 18px;
-    font-weight: bold;
+  font-weight: 600;
+  font-size: 1.2rem;
+  margin: 0.5rem 0;
 }
 
 .kurs-opis {
-    margin: 10px 0;
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-color);
 }
 
+.kurs-cena,
 .kurs-datum {
-    color: #888;
+  font-size: 0.9rem;
+  margin-bottom: 0.4rem;
 }
 
+button {
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  margin-right: 0.3rem;
+  margin-top: 0.4rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.3s;
+}
 
+button:hover {
+  background-color: var(--button-hover);
+}
 
-
-
+.delete-button2,
+.view-students-button,
+.view-lessons-button,
+.edit-course-button {
+  display: inline-block;
+}
 
 .modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .modal-content,
 .edit-modal-content {
-    background: #fff;
-    border-radius: 8px;
-    padding: 20px;
-    max-width: 80%;
-    max-height: 80vh;
-    overflow-y: auto;
-    position: relative;
+  background-color: var(--card-bg);
+  padding: 2rem;
+  border-radius: 12px;
+  max-width: 600px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: var(--card-shadow);
+  color: var(--text-color);
 }
 
 .close-modal-button {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: #ff6b6b;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    padding: 5px 10px;
-    cursor: pointer;
-}
-
-.close-modal-button:hover {
-    background: #ff4c4c;
+  position: absolute;
+  top: 1rem;
+  right: 1.2rem;
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  color: var(--text-color);
+  cursor: pointer;
 }
 
 .lessons-list {
-    margin-top: 20px;
+  margin-top: 1rem;
 }
 
 .lesson-card {
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    padding: 10px;
-    margin-bottom: 10px;
+  background-color: var(--background-color);
+  border: 1px solid var(--primary-color);
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 10px;
 }
 
 .lesson-title {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 5px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-bottom: 0.3rem;
 }
 
 .lesson-content {
-    margin: 10px 0;
-    font-size: 14px;
-    color: #333;
+  font-size: 0.95rem;
+  margin-bottom: 0.6rem;
 }
 
 .lesson-video {
-    max-width: 20%;
-    height: auto;
-    margin: 10px 0;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 1rem;
 }
 
+.edit-lesson-button,
 .delete-lesson-button,
-.save-edit-button,
-.edit-lesson-button {
-    background: #ff6b6b;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    padding: 5px 10px;
-    cursor: pointer;
-
+.save-button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  margin-top: 0.5rem;
+  margin-right: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
+.edit-lesson-button:hover,
 .delete-lesson-button:hover,
-.save-edit-button:hover,
-.edit-lesson-button:hover {
-    background: #ff4c4c;
+.save-button:hover {
+  background-color: var(--secondary-color);
 }
 
-form label {
-    display: block;
-    margin-top: 10px;
-}
+@media (max-width: 768px) {
+  .kurs-lista {
+    grid-template-columns: 1fr;
+  }
 
-form input,
-form textarea {
+  .modal-content,
+  .edit-modal-content {
+    padding: 1rem;
+  }
+
+  button {
+    margin-bottom: 0.5rem;
     width: 100%;
-    padding: 8px;
-    margin-top: 5px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-}
+  }
 
-form textarea {
-    height: 100px;
-}
-
-.delete-button2, .view-students-button, .view-lessons-button {
-    background-color: transparent;
-    color: #000;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 26px;
-    transition: 0.3s
-};
-
-.delete-button2:hover {
-    color: rgb(255, 53, 53); 
-}
-
-
-.view-students-button:hover {
-    color: rgb(11, 202, 202);
-}
-
-.view-lessons-button:hover {
-    color: rgb(18, 206, 18);
+  .close-modal-button {
+    top: 0.5rem;
+    right: 0.8rem;
+  }
 }

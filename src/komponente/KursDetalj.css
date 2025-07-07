@@ -1,245 +1,398 @@
+/* KursDetalj.css */
+
+:root {
+  /* Light theme colors */
+  --primary-color: #4a6fa5;
+  --secondary-color: #166088;
+  --accent-color: #4fc3f7;
+  --background-color: #f5f7fa;
+  --text-color: #333;
+  --card-bg: #ffffff;
+  --card-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  --button-bg: var(--primary-color);
+  --button-text: white;
+  --button-hover: var(--secondary-color);
+  --wishlist-item-bg: #f8f9fa;
+  --wishlist-item-hover: #e9ecef;
+  --editor-bg: #f8f9fa;
+  --editor-border: #ddd;
+  --ai-feedback-bg: #f0f8ff;
+  --ai-feedback-border: #d0e3ff;
+  --ai-error-bg: #fff0f0;
+  --ai-error-border: #ffd0d0;
+}
+
+[data-theme="dark"] {
+  /* Dark theme colors */
+  --primary-color: #6a8fc7;
+  --secondary-color: #2c4d6d;
+  --accent-color: #00b4d8;
+  --background-color: #121212;
+  --text-color: #e0e0e0;
+  --card-bg: #1e1e1e;
+  --card-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  --button-bg: var(--primary-color);
+  --button-text: white;
+  --button-hover: #4a6fa5;
+  --wishlist-item-bg: #2d2d2d;
+  --wishlist-item-hover: #3d3d3d;
+  --editor-bg: #1e1e1e;
+  --editor-border: #444;
+  --ai-feedback-bg: #1a2a3a;
+  --ai-feedback-border: #2a4a6a;
+  --ai-error-bg: #3a1a1a;
+  --ai-error-border: #6a2a2a;
+}
+
 .kurs-detalj-wrapper {
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-    background-color: #f7f7f7;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  min-height: 100vh;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .kurs-detalj-container {
-    display: flex;
-    flex-direction: row;
-    gap: 30px;
-    margin-bottom: 40px;
+  display: flex;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+  gap: 2rem;
 }
 
 .left-section {
-    flex: 0 0 45%;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-}
-
-.videocontainer-kurs {
-    width: 100%;
-    padding: 20px;
-    text-align: center;
-}
-
-.videocontainer-kurs video {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
+  flex: 2;
+  min-width: 0;
 }
 
 .right-section {
-    flex: 1;
-    background-color: #fff;
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  flex: 1;
+  min-width: 300px;
+}
+
+.kurs-info {
+  background-color: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: var(--card-shadow);
+  margin-bottom: 2rem;
 }
 
 .kurs-title {
-    font-size: 2.5rem;
-    color: #333;
-    margin-bottom: 20px;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
 }
 
 .kurs-opis {
-    font-size: 1.2rem;
-    color: #666;
-    margin-bottom: 30px;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
 }
 
-.wishlist-button,
-.purchase-button {
-    background-color: #007BFF;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1rem;
-    margin-bottom: 20px;
-    transition: background-color 0.3s;
+.kurs-meta {
+  margin: 0.5rem 0;
+  color: var(--text-color);
 }
 
-.wishlist-button.wishlisted {
-    background-color: #ff6b6b;
+/* Video container */
+.videocontainer-kurs {
+  background-color: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: var(--card-shadow);
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.wishlist-button:hover,
-.purchase-button:hover {
-    background-color: #0056b3;
+.lesson-video {
+  max-width: 100%;
+  height: auto;
+  aspect-ratio: 16/9;
+  background-color: #000;
+  margin-bottom: 1.5rem;
 }
 
-.rating-section {
-    margin-top: 20px;
+.lekcija-content {
+  margin-bottom: 1.5rem;
+  width: 100%;
 }
 
-.submit-rating-button {
-    margin-top: 10px;
-    padding: 8px 16px;
-    background-color: #28a745;
-    color: white;
-    border: none;
-    cursor: pointer;
-    border-radius: 4px;
-}
-
+/* Lessons list */
 .lekcije-container {
-    margin-top: 30px;
+  background-color: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: var(--card-shadow);
 }
 
 .lekcije-section {
-    margin-bottom: 20px;
+  margin-bottom: 1.5rem;
 }
 
 .section-title {
-    font-size: 1.5rem;
-    color: #007BFF;
-    margin-bottom: 10px;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--wishlist-item-bg);
 }
 
 .lekcije-lista {
-    list-style: none;
-    padding: 0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .lekcija-item {
-    background-color: #f1f1f1;
-    border-radius: 5px;
-    padding: 10px 15px;
-    margin-bottom: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transition: background-color 0.3s;
+  padding: 0.8rem;
+  margin-bottom: 0.5rem;
+  border-radius: 5px;
+  background-color: var(--wishlist-item-bg);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.2s ease;
 }
 
 .lekcija-item:hover {
-    background-color: #e0e0e0;
+  background-color: var(--wishlist-item-hover);
+}
+
+.lekcija-item.active {
+  border-left: 4px solid var(--accent-color);
 }
 
 .lekcija-title {
-    cursor: pointer;
-    font-size: 1.1rem;
-    color: #007BFF;
+  flex: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
+.assignment-badge {
+  background-color: var(--accent-color);
+  color: white;
+  padding: 0.2rem 0.5rem;
+  border-radius: 3px;
+  font-size: 0.8rem;
+}
+
+.completion-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+/* Buttons */
+.wishlist-button, 
+.purchase-button,
+.submit-rating-button {
+  padding: 0.8rem 1.5rem;
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  border: none;
+  border-radius: 5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+  width: 100%;
+  text-align: center;
+}
+
+.wishlist-button:hover,
+.purchase-button:hover,
+.submit-rating-button:hover {
+  background-color: var(--button-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.wishlist-button.active {
+  background-color: var(--secondary-color);
+}
+
+.submit-rating-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Rating */
+.rating-section {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--wishlist-item-bg);
+}
+
+/* Assignment section */
+.assignment-section {
+  width: 100%;
+  margin-top: 1.5rem;
+}
+
+.assignment-text {
+  background-color: var(--wishlist-item-bg);
+  padding: 1rem;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+  white-space: pre-wrap;
+}/* Code editor */
+.code-editor-container {
+  width: 100%;
+  margin-top: 1.5rem;
+}
+
+.language-selector {
+  margin-bottom: 0.5rem;
+}
+
+.language-selector select {
+  background-color: var(--card-bg);
+  color: var(--text-color);
+  border: 1px solid var(--editor-border);
+  padding: 0.3rem 0.5rem;
+  border-radius: 3px;
+}
+
+.editor-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.save-code-button,
+.run-code-button {
+  padding: 0.5rem 1rem;
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.save-code-button:hover,
+.run-code-button:hover {
+  background-color: var(--button-hover);
+}
+
+.run-code-button {
+  background-color: var(--accent-color);
+}
+
+/* AI Feedback */
+.ai-feedback-box {
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 5px;
+  background-color: var(--ai-feedback-bg);
+  border: 1px solid var(--ai-feedback-border);
+}
+
+.ai-feedback-box.error {
+  background-color: var(--ai-error-bg);
+  border-color: var(--ai-error-border);
+}
+
+.ai-feedback-box h4 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.assignment-prompt {
+  margin-bottom: 0.5rem;
+}
+
+.ai-response {
+  white-space: pre-wrap;
+  margin: 0;
+  font-family: inherit;
+}
+
+/* Comments */
 .komentari-container {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-.quiz-container {
-    margin-top: 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem 2rem;
 }
 
-.quiz-question {
-    margin-bottom: 15px;
+/* Responsive */
+@media (max-width: 1024px) {
+  .kurs-detalj-container {
+    flex-direction: column;
+  }
+  
+  .left-section,
+  .right-section {
+    width: 100%;
+  }
 }
 
-.quiz-question p {
-    font-weight: bold;
-}
-
-.quiz-question ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.quiz-question li {
-    margin-bottom: 5px;
-}
-
-
-
-/* Responsive Styles */
 @media (max-width: 768px) {
-    .kurs-detalj-container {
-        flex-direction: column;
-        gap: 20px;
-    }
-
-    .left-section,
-    .right-section {
-        flex: 1;
-    }
-
-    .left-section {
-        order: 2;
-    }
-
-    .right-section {
-        order: 1;
-    }
-
-    .videocontainer-kurs {
-        padding: 10px;
-    }
-
-    .kurs-title {
-        font-size: 2rem;
-    }
-
-    .kurs-opis {
-        font-size: 1rem;
-    }
-
-    .wishlist-button,
-    .purchase-button,
-    .submit-rating-button {
-        font-size: 0.9rem;
-        padding: 8px 16px;
-    }
-
-    .lekcija-item {
-        flex-direction: column;
-    }
-
-    .lekcija-title {
-        font-size: 1rem;
-    }
-
-    .section-title {
-        font-size: 1.2rem;
-    }
+  .kurs-detalj-container {
+    padding: 1rem;
+  }
+  
+  .komentari-container {
+    padding: 0 1rem 1rem;
+  }
+  
+  .editor-actions {
+    flex-direction: column;
+  }
+  
+  .save-code-button,
+  .run-code-button {
+    width: 100%;
+  }
+}
+/* Monaco Editor Theme Overrides */
+.monaco-editor {
+  border-radius: 5px;
+  border: 1px solid var(--editor-border) !important;
 }
 
-@media (max-width: 480px) {
-    .kurs-title {
-        font-size: 1.5rem;
-    }
+/* Light theme specific editor styles */
+[data-theme="light"] .monaco-editor {
+  --vscode-editor-background: var(--editor-bg);
+  --vscode-editor-foreground: #333333;
+  --vscode-editor-selectionBackground: #add6ff;
+  --vscode-editor-lineHighlightBackground: #f5f5f5;
+}
 
-    .kurs-opis {
-        font-size: 0.9rem;
-    }
+/* Dark theme specific editor styles */
+[data-theme="dark"] .monaco-editor {
+  --vscode-editor-background: #1e1e1e;
+  --vscode-editor-foreground: #d4d4d4;
+  --vscode-editor-selectionBackground: #264f78;
+  --vscode-editor-lineHighlightBackground: #282828;
+  --vscode-editorCursor-foreground: #a6a6a6;
+}
 
-    .wishlist-button,
-    .purchase-button,
-    .submit-rating-button {
-        font-size: 0.8rem;
-        padding: 6px 12px;
-    }
+/* Editor container */
+.code-editor-container {
+  position: relative;
+  width: 100%;
+  margin-top: 1.5rem;
+}
 
-    .lekcija-item {
-        padding: 8px 12px;
-    }
+/* Override Monaco's built-in theme colors */
+.monaco-editor .margin,
+.monaco-editor .monaco-editor-background {
+  background-color: var(--vscode-editor-background) !important;
+}
 
-    .lekcija-title {
-        font-size: 0.9rem;
-    }
+.monaco-editor .view-overlays .current-line {
+  background-color: var(--vscode-editor-lineHighlightBackground) !important;
+  border: none !important;
+}
 
-    .section-title {
-        font-size: 1rem;
-    }
+.monaco-editor .view-lines {
+  color: var(--vscode-editor-foreground) !important;
+}
 
-    .videocontainer-kurs video {
-        height: 200px;
-    }
+.monaco-editor .mtkw {
+  color: var(--accent-color) !important;
 }

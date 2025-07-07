@@ -8,23 +8,30 @@ const KupljenKurs = () => {
     const [ratings, setRatings] = useState({});
     const [progress, setProgress] = useState({});
     const { user } = useAuth(); // Get user from auth hook
-
+    const [error, setError] = useState(null);
+    const [loading, setLoading] = useState(true);
+    console.log(user)
     // Fetch purchased courses for the logged-in user
     useEffect(() => {
         const fetchKupljeniKursevi = async () => {
-            if (user && user.id) { // Check if user and user ID exist
-                try {
-                    const response = await axios.get(`http://localhost:5000/api/kupovina/user/${user.id}`);
-                    if (response.status === 200) {
-                        setKupljeniKursevi(response.data);
-                    } else {
-                        console.error('Failed to fetch purchased courses');
-                    }
-                } catch (error) {
-                    console.error('Error fetching purchased courses:', error);
+            if (!user?.id) {
+                setLoading(false);
+                return;
+            }
+
+            try {
+                setLoading(true);
+                const response = await axios.get(`http://localhost:5000/api/kupovina/user/${user.id}`);
+
+                if (response.status === 200) {
+                    setKupljeniKursevi(response.data);
+                    setError(null);
                 }
-            } else {
-                console.warn('Korisnik nije ulogovan');
+            } catch (error) {
+                console.error('Error:', error);
+                setError('Došlo je do greške pri povezivanju sa serverom. Proverite da li je backend pokrenut.');
+            } finally {
+                setLoading(false);
             }
         };
 
@@ -88,9 +95,9 @@ const KupljenKurs = () => {
                     <div className="kurs-list">
                         {kupljeniKursevi.map(kurs => (
                             <div key={kurs.id} className="kurs-card">
-                                 {kurs.slika && (
-                            <img src={kurs.slika} alt={kurs.naziv} className="kurs-slika" />
-                        )}
+                                {kurs.slika && (
+                                    <img src={kurs.slika} alt={kurs.naziv} className="kurs-slika" />
+                                )}
                                 <h3>{kurs.naziv}</h3>
                                 <p>{kurs.opis}</p>
                                 <p>Moja Ocena: <b>{ratings[kurs.id] ? `${ratings[kurs.id]}⭐` : 'Nema ocene'}</b></p>

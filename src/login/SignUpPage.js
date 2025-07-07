@@ -11,6 +11,7 @@ import {
   MDBInput,
 } from "mdb-react-ui-kit";
 import "mdb-react-ui-kit/dist/css/mdb.min.css";
+import "./Auth.css";
 
 const SignUpPage = () => {
   const [ime, setIme] = useState("");
@@ -23,27 +24,15 @@ const SignUpPage = () => {
   const [showRole, setShowRole] = useState(false);
   const navigate = useNavigate();
 
-  // Function to handle email input change and conditionally show the role field
   const handleEmailChange = (e) => {
     const emailValue = e.target.value;
     setEmail(emailValue);
-    // Show role field only if email contains @undovrbas.com
     setShowRole(emailValue.includes("@undovrbas.com"));
   };
 
-  // Function to handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      console.log("Sending data:", {
-        ime,
-        prezime,
-        email,
-        sifra,
-        uloga: showRole ? uloga : "korisnik",
-        adresa,
-        telefon,
-      });
       const response = await axios.post("http://localhost:5000/api/korisnici", {
         ime,
         prezime,
@@ -53,46 +42,31 @@ const SignUpPage = () => {
         telefon,
         adresa
       });
-      console.log(response.data);
-      alert(response.data.message); // Display message
-      navigate("/");
+      alert(response.data.message);
+      navigate("/login");
     } catch (error) {
-      console.error(
-        "Error:",
-        error.response ? error.response.data : error.message
-      );
+      console.error("Error:", error.response ? error.response.data : error.message);
+      alert("Došlo je do greške pri registraciji");
     }
   };
-  console.log(`telefon: ${telefon} `);
 
   return (
-    <MDBContainer fluid>
-      <div
-        className="p-5 bg-image"
-        style={{
-          backgroundImage:
-            "url(https://mdbootstrap.com/img/new/textures/full/171.jpg)",
-          height: "300px",
-        }}
-      ></div>
-
+    <MDBContainer fluid className="auth-page-container">
+      
       <MDBCard
-        className="mx-5 mb-5 p-5 shadow-5"
-        style={{
-          marginTop: "-100px",
-          background: "hsla(0, 0%, 100%, 0.8)",
-          backdropFilter: "blur(30px)",
-        }}
+        className="mx-5 mb-5 p-5 shadow-5 auth-card"
       >
-        <MDBCardBody className="p-5 text-center">
-          <h2 className="fw-bold mb-5">Sign Up</h2>
+        <MDBCardBody className="auth-card-body">
+          <h2 className="auth-title">Sign Up</h2>
           <form onSubmit={handleSubmit}>
             <MDBRow>
               <MDBCol col="6">
                 <MDBInput
                   wrapperClass="mb-4"
+                  className="auth-form-input"
+                  labelClass="auth-form-label"
                   label="Ime"
-                  id="form1"
+                  id="firstName"
                   type="text"
                   value={ime}
                   onChange={(e) => setIme(e.target.value)}
@@ -103,8 +77,10 @@ const SignUpPage = () => {
               <MDBCol col="6">
                 <MDBInput
                   wrapperClass="mb-4"
+                  className="auth-form-input"
+                  labelClass="auth-form-label"
                   label="Prezime"
-                  id="form2"
+                  id="lastName"
                   type="text"
                   value={prezime}
                   onChange={(e) => setPrezime(e.target.value)}
@@ -115,8 +91,10 @@ const SignUpPage = () => {
 
             <MDBInput
               wrapperClass="mb-4"
+              className="auth-form-input"
+              labelClass="auth-form-label"
               label="Email"
-              id="form3"
+              id="signupEmail"
               type="email"
               value={email}
               onChange={handleEmailChange}
@@ -125,8 +103,10 @@ const SignUpPage = () => {
 
             <MDBInput
               wrapperClass="mb-4"
+              className="auth-form-input"
+              labelClass="auth-form-label"
               label="Šifra"
-              id="form4"
+              id="signupPassword"
               type="password"
               value={sifra}
               onChange={(e) => setSifra(e.target.value)}
@@ -135,8 +115,10 @@ const SignUpPage = () => {
 
             <MDBInput
               wrapperClass="mb-4"
-              label="telefon"
-              id="form6"
+              className="auth-form-input"
+              labelClass="auth-form-label"
+              label="Telefon"
+              id="phoneNumber"
               type="text"
               value={telefon}
               onChange={(e) => setTelefon(e.target.value)}
@@ -145,8 +127,10 @@ const SignUpPage = () => {
 
             <MDBInput
               wrapperClass="mb-4"
-              label="adresa"
-              id="form5"
+              className="auth-form-input"
+              labelClass="auth-form-label"
+              label="Adresa"
+              id="address"
               type="text"
               value={adresa}
               onChange={(e) => setAdresa(e.target.value)}
@@ -156,14 +140,12 @@ const SignUpPage = () => {
             {showRole && (
               <div className="mb-4">
                 <select
-                  className="form-select"
+                  className="auth-role-select"
                   value={uloga}
                   onChange={(e) => setUloga(e.target.value)}
                   required
                 >
-                  <option value="" disabled>
-                    Odaberi ulogu
-                  </option>
+                  <option value="" disabled>Odaberi ulogu</option>
                   <option value="admin">Admin</option>
                   <option value="instruktor">Instruktor</option>
                   <option value="korisnik">Korisnik</option>
@@ -171,7 +153,7 @@ const SignUpPage = () => {
               </div>
             )}
 
-            <MDBBtn className="w-100 mb-4" size="md" type="submit">
+            <MDBBtn className="w-100 mb-4 auth-btn" size="md" type="submit">
               Sign Up
             </MDBBtn>
           </form>

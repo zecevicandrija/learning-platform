@@ -1,46 +1,87 @@
+/* Popust.css */
+
 .popust-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: #f9f9f9;
-    margin: 50px;
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: var(--card-bg);
+  border-radius: 10px;
+  box-shadow: var(--card-shadow);
+  color: var(--text-color);
 }
 
-.popust-input-kod, .popust-input-procenat {
-    width: 300px;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+.popust-container h1 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: var(--primary-color);
+}
+
+.popust-input-kod,
+.popust-input-procenat {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  background-color: var(--card-bg);
+  color: var(--text-color);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.popust-input-kod:focus,
+.popust-input-procenat:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 2px rgba(79, 195, 247, 0.2);
 }
 
 .popust-dugme {
-    width: 320px;
-    padding: 12px;
-    margin-top: 10px;
-    border: none;
-    border-radius: 5px;
-    background-color: #28a745;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s ease;
+  width: 100%;
+  padding: 0.8rem;
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 0.5rem;
 }
 
 .popust-dugme:hover {
-    background-color: #218838;
+  background-color: var(--button-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.popust-poruka, .popust-greska {
-    margin-top: 15px;
-    font-size: 14px;
-    color: #333;
+.popust-poruka {
+  text-align: center;
+  color: #28a745;
+  margin-top: 1rem;
+  padding: 0.5rem;
+  background-color: rgba(40, 167, 69, 0.1);
+  border-radius: 5px;
 }
 
 .popust-greska {
-    color: #d9534f;
+  text-align: center;
+  color: #dc3545;
+  margin-top: 1rem;
+  padding: 0.5rem;
+  background-color: rgba(220, 53, 69, 0.1);
+  border-radius: 5px;
+}
+
+@media (max-width: 768px) {
+  .popust-container {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+  
+  .popust-container h1 {
+    font-size: 1.5rem;
+  }
 }

@@ -1,109 +1,103 @@
-/* Light Theme Styles */
+/* Lekcije.css */
+
 .lekcije-container {
-    margin-top: 20px;
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem 1rem;
+  background-color: var(--card-bg);
+  color: var(--text-color);
+  box-shadow: var(--card-shadow);
+  border-radius: 10px;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.lekcije-container h3 {
-    font-size: 24px;
-    margin-bottom: 20px;
-    color: #333;
-    text-align: center;
+.lekcijenaslov1 {
+  text-align: center;
+  color: var(--primary-color);
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
 }
 
 .add-lekcija-form {
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    width: 100%;
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-.add-lekcija-form div {
-    margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
 }
 
 .add-lekcija-form label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: bold;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+  display: block;
+  color: var(--primary-color);
 }
 
-.add-lekcija-form input,
+.add-lekcija-form input[type="text"],
+.add-lekcija-form input[type="file"],
 .add-lekcija-form select,
 .add-lekcija-form textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    box-sizing: border-box;
+  width: 100%;
+  padding: 0.6rem 1rem;
+  border: 1px solid var(--accent-color);
+  border-radius: 8px;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: all 0.3s ease;
+  font-size: 1rem;
+}
+
+.add-lekcija-form input[type="file"] {
+  padding: 0.4rem;
 }
 
 .add-lekcija-form textarea {
-    height: 100px;
-    resize: vertical;
+  min-height: 100px;
+  resize: vertical;
 }
 
-.add-lekcija-form button {
-    padding: 10px 20px;
-  background-color: #007bff;
-  color: #fff;
-  border: black 1px solid;
+.add-lekcija-form input:focus,
+.add-lekcija-form textarea:focus,
+.add-lekcija-form select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(79, 195, 247, 0.3);
+}
+
+.add-lekcija-form button[type="submit"] {
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  border: none;
+  border-radius: 30px;
+  padding: 0.7rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
   cursor: pointer;
-  font-size: 16px;
-  border-radius: 4px;
-  transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  align-self: flex-start;
 }
 
 .add-lekcija-form button:hover {
-    background-color: transparent;
-    color: #007bff;
-    border: black 1px solid;
-    box-shadow: 0 4px 14px rgba(0, 123, 255, 0.3);
+  background-color: var(--button-hover);
+  transform: translateY(-2px);
 }
 
 .add-lekcija-form p {
-    color: #007bff;
+  margin-top: 0.5rem;
+  font-style: italic;
+  color: var(--text-color);
+}
+
+/* 📱 Responsivnost */
+@media (max-width: 600px) {
+  .lekcije-container {
+    padding: 1.5rem 1rem;
+  }
+
+  .lekcijenaslov1 {
+    font-size: 1.5rem;
+  }
+
+  .add-lekcija-form button[type="submit"] {
+    width: 100%;
     text-align: center;
-    margin-top: 10px;
-}
-
-/* Dark Theme Styles */
-.dark-theme .lekcije-container h3 {
-    color: #e0e0e0;
-}
-
-.dark-theme .add-lekcija-form {
-    background-color: #333;
-    color: #e0e0e0;
-    border: 1px solid #444;
-}
-
-.dark-theme .add-lekcija-form label {
-    color: #e0e0e0;
-}
-
-.dark-theme .add-lekcija-form input,
-.dark-theme .add-lekcija-form select,
-.dark-theme .add-lekcija-form textarea {
-    background-color: #555;
-    color: #e0e0e0;
-    border: 1px solid #666;
-}
-
-.dark-theme .add-lekcija-form button {
-    background-color: #ffcc00;
-    color: #000;
-}
-
-.dark-theme .add-lekcija-form button:hover {
-    background-color: transparent;
-  color: #ffcc00;
-  border-color: #ffcc00;
-  box-shadow: 0 4px 14px rgba(255, 204, 0, 0.3);
-}
-
-.dark-theme .add-lekcija-form p {
-    color: #ffcc00;
+  }
 }

@@ -3,11 +3,12 @@ import { useAuth } from '../login/auth';
 import './DodajKurs.css';
 
 const DodajKurs = () => {
-    const { user } = useAuth(); // Preuzmi trenutno prijavljenog korisnika
+    const { user } = useAuth();
     const [naziv, setNaziv] = useState('');
     const [opis, setOpis] = useState('');
+    const [o_cemu, setOCemu] = useState(''); // New state for course details
     const [slika, setSlika] = useState(null);
-    const [cena, setCena] = useState(''); // Dodaj stanje za cenu
+    const [cena, setCena] = useState('');
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -20,8 +21,9 @@ const DodajKurs = () => {
         const formData = new FormData();
         formData.append('naziv', naziv);
         formData.append('opis', opis);
-        formData.append('instruktor_id', user.id); // Koristi ID prijavljenog korisnika
-        formData.append('cena', cena); // Dodaj cenu u formData
+        formData.append('o_cemu', o_cemu); // Add course details to form data
+        formData.append('instruktor_id', user.id);
+        formData.append('cena', cena);
         if (slika) {
             formData.append('slika', slika);
         }
@@ -36,7 +38,8 @@ const DodajKurs = () => {
                 console.log('Kurs je uspešno dodat');
                 setNaziv('');
                 setOpis('');
-                setCena(''); // Resetuj polje za cenu
+                setOCemu(''); // Reset the new field
+                setCena('');
                 setSlika(null);
             } else {
                 console.error('Greška pri dodavanju kursa');
@@ -68,6 +71,15 @@ const DodajKurs = () => {
                     className="form-textarea"
                     value={opis}
                     onChange={(e) => setOpis(e.target.value)}
+                    required
+                />
+            </div>
+            <div className="form-group">
+                <label className="form-label">O čemu je kurs:</label>
+                <textarea
+                    className="form-textarea"
+                    value={o_cemu}
+                    onChange={(e) => setOCemu(e.target.value)}
                     required
                 />
             </div>

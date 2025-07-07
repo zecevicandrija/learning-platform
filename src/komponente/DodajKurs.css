@@ -1,97 +1,81 @@
-/* Light Theme Styles */
+/* DodajKurs.css */
+
 .dodaj-kurs-form {
-  max-width: 600px;
-  margin: 7rem auto;
-  padding: 40px;
-  background-color: #f9f9f9;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
+  max-width: 700px;
+  margin: 2rem auto;
+  padding: 2rem 1rem;
+  background-color: var(--card-bg);
+  color: var(--text-color);
+  box-shadow: var(--card-shadow);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .form-group {
-  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
 }
 
 .form-label {
-  display: block;
-  margin-bottom: 8px;
-  font-size: 16px;
   font-weight: 600;
-  color: #333;
+  margin-bottom: 0.4rem;
+  color: var(--primary-color);
 }
 
 .form-input,
-.form-textarea {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  font-size: 16px;
-  color: #333;
-  font-family: "Bai Jamjuree", sans-serif;
-  transition: border-color 0.3s, box-shadow 0.3s;
+.form-textarea,
+.form-file-input {
+  padding: 0.6rem 1rem;
+  font-size: 1rem;
+  border: 1px solid var(--accent-color);
+  border-radius: 8px;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: all 0.3s ease;
 }
 
 .form-input:focus,
-.form-textarea:focus {
-  border-color: #007bff;
-  box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+.form-textarea:focus,
+.form-file-input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(79, 195, 247, 0.3);
 }
 
 .form-textarea {
+  min-height: 120px;
   resize: vertical;
-  min-height: 100px;
-}
-
-.form-file-input {
-  font-size: 16px;
 }
 
 .form-submit-btn {
-  padding: 12px 20px;
-  background-color: #007bff;
-  color: #fff;
-  border: 1px solid transparent; /* Ensure border is transparent by default */
+  align-self: flex-start;
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  padding: 0.7rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 30px;
   cursor: pointer;
-  font-size: 18px;
-  border-radius: 4px;
-  transition: background-color 0.3s, box-shadow 0.3s, border 0.3s; /* Add transition for border */
-  box-sizing: border-box; /* Include padding and border in width and height */
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .form-submit-btn:hover {
-  background-color: transparent;
-  color: #007bff;
-  border: 1px solid #007bff;
-  box-shadow: 0 4px 14px rgba(0, 123, 255, 0.3);
+  background-color: var(--button-hover);
+  transform: translateY(-2px);
 }
 
-/* Dark Theme Styles */
-.dark-theme .dodaj-kurs-form {
-  background-color: #333;
-  color: #e0e0e0;
-  border: 1px solid #444;
-}
+/* 📱 Responsivnost */
+@media (max-width: 600px) {
+  .dodaj-kurs-form {
+    padding: 1.5rem 1rem;
+  }
 
-.dark-theme .form-label {
-  color: #e0e0e0;
-}
-
-.dark-theme .form-input,
-.dark-theme .form-textarea {
-  background-color: #555;
-  color: #e0e0e0;
-  border: 1px solid #666;
-}
-
-.dark-theme .form-submit-btn {
-  background-color: #ffcc00;
-  color: #000;
-}
-
-.dark-theme .form-submit-btn:hover {
-  background-color: transparent;
-  color: #ffcc00;
-  border: 1px solid #ffcc00;
-  box-shadow: 0 4px 14px rgba(255, 204, 0, 0.3);
+  .form-submit-btn {
+    width: 100%;
+    text-align: center;
+  }
 }
