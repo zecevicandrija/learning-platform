@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
@@ -16,6 +17,7 @@ const kompletirane_lekcijeRouter = require('./routes/kompletirane_lekcije');
 const popustiRouter = require('./routes/popusti');
 const kvizoviRouter = require('./routes/kvizovi');
 const rezultatiKvizaRouter = require('./routes/rezultati_kviza');
+const sacuvani_kodoviRouter = require('./routes/sacuvani_kodovi')
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -53,6 +55,7 @@ app.use('/api/kompletirane_lekcije', kompletirane_lekcijeRouter);
 app.use('/api/popusti', popustiRouter);
 app.use('/api/kvizovi', kvizoviRouter);
 app.use('/api/rezultati_kviza', rezultatiKvizaRouter);
+app.use('/api/sacuvani_kodovi', sacuvani_kodoviRouter);
 
 
 // Start server

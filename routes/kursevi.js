@@ -36,13 +36,12 @@ router.get('/:id', (req, res) => {
 
 // Endpoint for adding a new course
 router.post('/', upload.single('slika'), (req, res) => {
-    const { naziv, opis, instruktor_id, cena } = req.body;
+    const { naziv, opis, o_cemu, instruktor_id, cena } = req.body;
 
-    if (!naziv || !opis || !instruktor_id || cena === undefined) {
+    if (!naziv || !opis || !o_cemu || !instruktor_id || cena === undefined) {
         return res.status(400).json({ error: 'Missing required fields' });
     }
 
-    // Upload slike na Cloudinary
     cloudinary.uploader.upload_stream({ resource_type: 'image' }, (error, result) => {
         if (error) {
             console.error('Cloudinary error:', error);
@@ -51,8 +50,8 @@ router.post('/', upload.single('slika'), (req, res) => {
 
         const slikaUrl = result.secure_url;
 
-        const query = 'INSERT INTO kursevi (naziv, opis, instruktor_id, cena, slika) VALUES (?, ?, ?, ?, ?)';
-        db.query(query, [naziv, opis, instruktor_id, cena, slikaUrl], (err, results) => {
+        const query = 'INSERT INTO kursevi (naziv, opis, o_cemu, instruktor_id, cena, slika) VALUES (?, ?, ?, ?, ?, ?)';
+        db.query(query, [naziv, opis, o_cemu, instruktor_id, cena, slikaUrl], (err, results) => {
             if (err) {
                 console.error('Database error:', err);
                 return res.status(500).json({ error: 'Database error' });
